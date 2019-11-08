@@ -1,0 +1,8045 @@
+
+Oracle笔试题库 附参考答案
+1下列不属于ORACLE的逻辑结构的是（C）
+
+区
+段
+数据文件
+表空间
+ 
+
+2. 下面哪个用户不是ORACLE缺省安装后就存在的用户(A)
+
+A . SYSDBA
+
+B. SYSTEM
+
+C. SCOTT
+
+D. SYS
+
+ 
+
+3 下面哪个操作会导致用户连接到ORACLE数据库，但不能创建表(A)
+
+授予了CONNECT的角色，但没有授予RESOURCE的角色
+没有授予用户系统管理员的角色
+数据库实例没有启动
+数据库监听没有启动
+ 
+
+( )函数通常用来计算累计排名，移动平均数和报表聚合。
+A . 汇总
+
+B. 分析
+
+C 分组、
+
+D 单行
+
+ 
+
+带有（B）字句的SELECT语句可以在表的一行或多行放置排他锁。
+A .  FOR INSERT
+
+B.  FOR UPDATE
+
+C.  FOR DELETE
+
+D.  FOR REFRESH
+
+ 
+
+在Oracle中，你以SYSDBA登录，CUSTOMER表位于Mary用户方案中，下面哪条语句为数据库中的所有用户创建CUSTOMER表的同义词（B）。
+CREATE PUBLIC SYNONYM cust ON mary.customer;
+CREATE PUBLIC SYNONYM cust FOR mary.customer;
+CREATE SYNONYM cust ON mary.customer FOR PUBLIC;
+不能创建CUSTOMER的公用同义词。
+7. 在Oracle中，当FETCH语句从游标获得数据时，下面叙述正确的是（C）。
+
+游标打开
+游标关闭
+当前记录的数据加载到变量中
+创建变量保存当前记录的数据
+8. 在Oracle中，下面关于函数描述正确的是（AD）。
+
+SYSDATE函数返回Oracle服务器的日期和时间
+ROUND数字函数按四舍五入原则返回指定十进制数最靠近的整数
+ADD_MONTHS日期函数返回指定两个月份天数的和
+SUBSTR函数从字符串指定的位置返回指定长度的子串
+ 
+
+ 
+
+9. 阅读下面的PL/SQL程序块：
+
+BEGIN
+
+INSERT INTO employee(salary,last_name,first_name)
+
+VALUES(35000,’Wang’,'Fred’);
+
+SAVEPOINT save_a;
+
+INSERT INTO employee(salary,last_name,first_name)
+
+VALUES(40000,’Woo’,'David’);
+
+SAVEPOINT save_b;
+
+DELETE FROM employee WHERE dept_no=10;
+
+SAVEPOINT save_c;
+
+INSERT INTO employee(salary,last_name,first_name)
+
+VALUES(25000,’Lee’,'Bert’);
+
+ROLLBACK TO SAVEPOINT save_c;
+
+INSERT INTO employee(salary,last_name,first_name)
+
+VALUES(32000,’Chung’,'Mike’);
+
+ROLLBACK TO SAVEPOINT save_b;
+
+COMMIT;
+
+END;
+
+运行上面的程序，哪两个更改永久保存到数据库（CD）。
+
+DELETE FROM employee WHERE dept_no=10;
+INSERT INTO employee(salary,last_name,first_name)
+                        i.              VALUES(32000,’Chung’,'Mike’);
+INSERT INTO employee(salary,last_name,first_name)
+                        i.              VALUES(35000,’Wang’,'Fred’);
+INSERT INTO employee(salary,last_name,first_name)
+                        i.              VALUES(40000,’Woo’,'David’);
+ 
+
+ 
+
+10. 在Oracle中，表VENDOR包含以下列：
+
+VENDOR_ID NUMBER Primary Key
+
+NAME VARCHAR2(30)
+
+LOCATION_ID NUMBER
+
+ORDER_DT DATE
+
+ORDER_AMOUNT NUMBER(8,2)
+
+下面对表VENDOR运用分组函数的子句合法的是（C）。
+
+FROM MAX(order_dt)
+SELECT SUM(order_dt)
+SELECT SUM(order_amount)
+WHERE MAX(order_dt) = order_d
+ 
+
+11. 在Oracle中，表EMP包含以下列：
+
+……
+
+NAME VARCHAR2(20)
+
+ADDR VARCHAR2(60)
+
+……
+
+要以NAME’s address is ADDR格式返回数据，以下SQL语句正确的是（B）。
+
++ 的两边做To_number()
+
+SELECT NAME + ’’’s address is ‘ + ADDR FROM EMP;
+SELECT NAME || ’’’s address is ‘ || ADDR FROM EMP;
+SELECT NAME + ’\’s address is ‘ + ADDR FROM EMP;
+SELECT NAME || ’\’s address is ‘ || ADDR FROM EMP;
+ 
+
+ 
+
+12. 在Oracle中，以下不属于集合操作符的是（B）。
+
+UNION
+SUM
+MINUS
+INTERSECT
+ 
+
+13. 在Oracle中，表分区方式（C）建议分区数是2的幂（2、4、8等），以获得最平均的数据发布。
+
+范围分区
+列表分区
+散列分区
+复合分区
+ 
+
+14. 在Oracle中，关于锁,下列描述不正确的是（D）。
+
+锁用于在用户之间控制对数据的并发访问
+可以将锁归类为行级锁和表级锁
+insert、update、delete语句自动获得行级锁
+同一时间只能有一个用户锁定一个特定的表
+ 
+
+15 .在Oracle中，关于表分区下列描述不正确的是（）。
+
+分区允许对选定的分区执行维护操作，而其他分区对于用户仍然可用
+不可以对包含LONG或LONG RAW列的表进行分区
+不可以对包含任何LOB列的表进行分区
+如果分区键包含DATE数据类型的列，则必须使用TO_DATE函数完整的指定年份
+ 
+
+ 
+
+ 
+
+16:
+
+在Oracl中，哪种表分区维护操作可以将非分区表转换为分区表的分区（）。
+
+添加分区
+结合分区
+交换表分区
+合并分区
+ 
+
+ 
+
+17:
+
+在Oracle中，使用带有（）子句的SELECT命令可以在表的一行或多行上放置排他锁。
+
+FOR INSERT OF
+FOR REFRESH
+FOR UPDATE OF
+FOR LOCK
+ 
+
+ 
+
+18:
+
+在Oracle中，序列venseq使用下面的语句创建：
+
+CREATE SEQUENCE venseq INCREMENT BY 1 START WITH 10
+
+MAXVALUE 100 MINVALUE 10 CYCLE CACHE 5;
+
+下面对序列venseq修改的语句，错误的是（A）。
+
+ALTER SEQUENCE venseq START WITH 1;
+ALTER SEQUENCE venseq MAXVALUE 90;
+ALTER SEQUENCE venseq NOMINVALUE;
+ALTER SEQUENCE venseq NOCACHE;
+19:
+
+在Oracle中，使用以下语句创建视图：
+
+CREATE OR REPLACE VIEW pen_view
+
+AS SELECT * FROM order_master
+
+WHERE ostatus = ‘p’ WITH CHECK OPTION CONSTRAINT penv;
+
+当用户试图执行以下语句:
+
+UPDATE pen_view SET ostatus = ‘d’ WHERE ostatus=’p’;
+
+下列描述正确的是（B）。
+
+Oracle将ostatus修改为d，不提示任何错误
+Oracle不执行更新操作，并返回错误信息
+Oracle将ostatus修改为d，同时返回错误信息
+Oracle不执行更新操作，也不提示任何错误
+20:
+
+在Oracle中，在以下情形建立位图索引可以获得较好的性能（C）。
+
+在列值唯一的列上建立
+在列值相差很小的列上建立
+在列值频繁重复的列上建立
+在用于保存位图的列上建立
+21:
+
+在Oracle中，通过命令（C）可以释放锁。
+
+INSERT
+DELETE
+ROLLBACK
+UNLOCK
+22
+
+在Oracle中，下面关于簇的描述不正确的是（B）。
+
+簇是一组表，这些表拥有公共列，并且经常一起使用
+与每个表及其索引单独存储相比，簇能够提高INSERT语句的性能
+由于簇表中的所有行都使用相同的列作为公共主键，因此这些列仅为所有表存储一次，从而节省了存储空间
+经常更新的列不应选作簇键
+23:
+
+在Oracle中，抽象数据类型address_ty定义如下：
+
+CREATE TYPE address_ty AS OBJECT
+
+( street_no number(3),
+
+street_name varchar2(20),
+
+city varchar2(20),
+
+state varchar2(20))
+
+/
+
+表vend_mast定义如下：
+
+CREATE TABLE vend_mast
+
+(vencode varchar2(5), venname varchar2(15),
+
+venadd address_ty, tel_no number(10));
+
+下列语句能正确执行的是（）。
+
+SELECT city FROM vend_mast WHERE venname=’Joe’;
+UPDATE vend_mast SET address_ty.street_no=10
+WHERE venname=’john’;
+
+DELETE FROM vend_mast a WHERE a.venadd.vencode=’v100’;   需要启别名才能访问
+SELECT a.venadd.street_name FROM vend_mast a
+WHERE street_no=11;
+
+ 
+
+ 
+
+24:
+
+在Oracle中，（）数据字典表可以用来查看抽象数据类型的实际结构。
+
+USER_TYPE_ATTRS
+USER_TABLES
+USER_TYPE_TABS
+USER_TAB_COLUMNS
+ 
+
+25:
+
+在Oracle中，（B）操作符允许引用现有的行对象。
+
+CAST
+REF
+MULTISET
+MAP
+26:
+
+在Oracle中，关于PL/SQL下列描述正确的是（C）。
+
+PL/SQL代表Power Language/SQL
+PL/SQL不支持面向对象编程
+PL/SQL块包括声明部分、可执行部分和异常处理部分
+PL/SQL提供的四种内置数据类型是character,integer,float,boolean
+27:
+
+在Oracle中，阅读下列PL/SQL块：
+
+DECLARE
+
+v_lower NUMBER:=2;
+
+v_upper NUMBER:=100;
+
+v_count NUMBER:=1;
+
+BEGIN
+
+I = 2; I <= 2; i++
+
+FOR i IN v_lower..v_lowerLOOP
+
+INSERT INTO test(results)
+
+VALUES (v_count);
+
+v_count := v_count +1;
+
+ENDLOOP;
+
+END;
+
+请问FOR LOOP循环体执行了（A）次。
+
+1
+2
+98
+100
+235:
+28:
+
+在Oracle中，（）程序包中提供了所有预定义的异常的定义。
+
+DBMS_STANDARD
+DBMS_STD
+DBMS_SQL
+DBMS_TYPES
+ 
+
+ 
+
+29:
+
+在Oracle中，关于子程序的描述不正确的是（C）。
+
+子程序 就是存储过程和函数
+
+子程序是已命名的PL/SQL块，可带参数并可在需要时随时调用
+子程序可以具有声明部分、可执行部分和异常处理部分
+子程序参数的模式只有IN和OUT两种模式
+子程序可分为过程和函数两种类型
+ 
+
+ 
+
+30:
+
+在Oracle中，当从SQL表达式调用函数时，下列描述不正确的是（AC）。
+
+从SELECT语句调用的函数均不能修改数据库表
+函数可以带有IN、OUT等模式的参数
+函数的返回值必须是数据库类型，不得使用PL/SQL类型
+形式参数必须使用数据库类型，不得使用PL/SQL类型
+31:
+
+在Oracle中，关于触发器的描述正确的是（D）。
+
+触发器可以删除，但不能禁用
+触发器只能用于表
+触发器可以分为行级和语句级两种
+触发器是一个对关联表发出insert、update、delete或select … for update语句时触发的存储过程
+32:
+
+在Oracle中，你需要创建索引提高薪水审查的性能，该审查要对员工薪水提高12个百分点后进行分析处理，下面哪个create index命令能解决此问题（A）。
+
+CREATE INDEX my_idx_1 ON employee(salary*1.12);
+CREATE UNIQUE INDEX my_idx_1 ON employee(salary);
+CREATE BITMAP INDEX my_idx_1 ON employee(salary);
+CREATE INDEX my_idx_1 ON employee(salary) REVERSE;
+ 
+
+ 
+
+33:
+
+在Oracle中，执行下面的语句：
+
+SELECT ceil(-97.342),
+
+floor(-97.342),  -123.01 -124
+
+round(-97.342),
+
+trunc(-97.342)
+
+FROM dual;
+
+ 
+
+哪个函数的返回值不等于-97（B）。
+
+ceil()
+floor()
+round(0)
+trunc()
+34:
+
+在Oracle中，用以下SQL命令创建了一个序列：
+
+CREATE SEQUENCE my_seq
+
+START WITH 394
+
+INCREMENT BY 12
+
+NOMINVALUE
+
+NOMAXVALUE
+
+NOCYCLE
+
+NOCACHE;
+
+用户执行包含my_seq.NEXTVAL的SQL语句三次，然后执行包含(seq建好后的第一次my_seq.NEXTVAL值不增加还是394)
+
+my_seq.CURRVAL的SQL语句四次，请问序列my_seq的当前值是（B）。
+
+406
+418
+430
+442
+242:
+ 
+
+35:
+
+在Oracle中，下列哪种标量类型不能保存到数据库表中（B）。
+
+CHAR
+RAW
+DATE
+BOOLEAN
+36:
+
+在Oracle中，不属于游标属性的是（C）。
+
+%NOTFOUND
+%FOUND
+%ISCLOSE
+%ISOPEN
+37:
+
+在Oracle中，在SQL提示符下调用PL/SQL过程的方法是（ABC）。
+
+使用CALL语句
+使用EXECUTE语句
+使用RUN语句
+直接使用过程名
+38:
+
+在Oracle中，用下列语句定义了一个过程：
+
+CREATE OR REPLACE PROCEDURE test(a IN VARCHAR2,
+
+b IN OUT NUMBER,
+
+c OUT VARCHAR2) IS
+
+BEGIN
+
+……
+
+END;
+
+/
+
+假定使用的变量都已定义，下面对过程test的调用语法正确的是（C）。
+
+test(‘String1’,50,v_str2)
+test(v_str1,v_num1,’String2’)
+test(‘String1’,v_num1,v_str2)
+test(v_str1,20,v_str2)
+39:
+
+在Oracle中，关于程序包的描述不正确的是（B）。
+
+程序包是一种数据库对象，它是对相关PL/SQL类型、子程序、游标、异常、变量和常量的封装
+程序包中私有对象是通过PRIVATE关键字来标识的  程序包体可以包括没有在程序包说明中列出的对象，这些是私有对象，程序包的用户不能使用
+PL/SQL允许两个或多个打包的子程序具有同一名称，只要子程序接受的参数数据类型不同
+程序包具有模块化、信息隐藏、新增功能及性能更佳等优点
+40:
+
+在Oracle中，用户（A）拥有所有内置的程序包。
+
+SYS
+SYSTEM
+PUBLIC
+DEFAULT
+ 
+
+ 
+
+41:
+
+在Oracle中，DBMS_LOB程序包的（）过程用于删除指定的BLOB或CLOB。
+
+delete
+erase
+remove
+empty_lob
+ 
+
+ 
+
+42
+
+在Oracle中，关于触发器的描述正确的是（D）。（选择一项）
+
+触发器可以删除，但不能禁用
+触发器只能用于表
+触发器可以分为行级和语句级
+触发器使一个对关联表发出select、insert、update或delete语句时触发的存储过程
+ 
+
+ 
+
+43:
+
+在Oracle中，通过命令（CD）可以释放锁。（选择两项）
+
+INSERT
+DELETE
+ROLLBACK
+COMMIT
+44:
+
+在Oracle中，事务中使用下列SQL语句不会引起锁定（A）。（选择一项）
+
+SELECT
+INSERT
+UPDATE
+DELETE
+45:
+
+在Oracle中，当需要使用显式游标更新或删除游标中的行时，声明游标时指定的SELECT语句必须带有（C）子句。（选择一项）
+
+WHERE CURRENT OF
+INTO
+FOR UPDATE
+ORDER BY
+46:
+
+在Windows操作系统中，Oracle的（A）服务器监听并接受来自客户端应用程序的连接请求。（选择一项）
+
+OracleHOME_NAMETNSListener
+OracleServiceSID
+OracleHOME_NAMEAgent
+OracleHOME_NAMEHTTPServer
+47:
+
+在Oracle中，有一个名为seq的序列对象，以下语句能返回序列值但不会引起序列值增加的是（C）。（选择一项）
+
+select seq.ROWNUM from dual;
+select seq.ROWIDfrom dual;
+select seq.CURRVALfrom dual;
+select seq.NEXTVALfrom dual;
+48:
+
+ORACLE中，执行语句：SELECT address1||’,'||address2||’,'||address2   ”Address” FROM employ；将会返回（B）列。
+
+0
+1
+2
+3
+49:
+
+在Oracle中，INSTEAD OF触发器主要用于（D）。（选择一项）
+
+表
+表和视图
+基于单个表的视图
+基于多个表的视图
+ 
+
+50:
+
+Oracle数据库中，下面（C）可以作为有效的列名。
+
+Column
+123_NUM
+NUM_#123
+#NUM123
+51:
+
+在Oracle中，以下工具可以逻辑备份数据库对象或整个数据库（B）。（选择一项）
+
+SQL*Plus
+导出实用程序
+导入实用程序
+SQL*Loader
+52:
+
+Oracle数据库中，通过（B）访问能够以最快的方式访问表中的一行。
+
+主键
+Rowid
+唯一索引
+整表扫描
+ 
+
+53:
+
+在Oracle中，使用下列的语句产生序列：
+
+CREATE SEQUENCE id；
+
+Oracle服务器会预开辟内存并维持的序列值有（C）个。（选择一项）
+
+0
+10
+20
+100
+ 
+
+54:
+
+Oracle数据库中，以下（C）命令可以删除整个表中的数据，并且无法回滚。
+
+drop
+delete
+truncate
+cascade
+ 
+
+ 
+
+55:
+
+Oralce数据库中，以下（A）函数可以针对任意数据类型进行操作。
+
+TO_CHAR
+LOWER
+MAX
+CEIL
+56:
+
+在Oracle中，语句（B）将ORDER_DATE日期值’2000年3月18日’显示为‘2000年1月1日’。（选择一项）
+
+SELECT ROUND(order_date,’day’)FROM inventory
+SELECT ROUND(order_date,’YEAR’)FROM inventory
+SELECT ROUND(order_date,’month’)FROM inventory
+SELECT ROUND(to_char(order_date,’yyyy’))FROM inventory
+57:
+
+在Oracle中，以下是STUDENTS表的结构：
+
+SID NUMBER NOT NULL，Primary Key
+
+SNAME VARCHAR2(30)
+
+COURSE_ID VARCHAR2(10) NOT NULL
+
+MARKS NUMBER
+
+你需要查询参加了课程ID为C10的考试，并且分数排在前10名的学生，以下（D）语句能够实现此功能。
+
+A. SELECT SID,marks,ROWNUM “Rank”
+
+FORM students
+
+WHERE ROWNUM<=10 AND course_id=’C10′
+
+ORDER BY marks DESC;
+
+ 
+
+B.SELECT SID,marks,ROWNUM”Rank”
+
+FORM students
+
+WHERE ROWNUM<=10 AND course_id=’C10′
+
+ORDER BY marks;
+
+C.
+
+SELECT SID,marks,ROWNUM”Rank”
+
+FORM (SELECT SID ,marks
+
+FORM students
+
+WHERE ROWNUM<=10 AND course_id=’C10′
+
+ORDER BY marks DESC;
+
+D.
+
+SELECT SID,marks,ROWNUM”Rank”
+
+FORM (SELECT SID ,marks
+
+FORM students
+
+WHERE course_id=’C10′ ORDER BY marks DESC)
+
+WHERE ROWNUM<=10;
+
+ 
+
+58:
+
+在Oracle中,用下列语句定义一个过程:
+
+CREATE PROCEDURE proc(value1 in varchar2,value2 out number,value3 in out varchar2)
+
+is
+
+begin
+
+……
+
+end;
+
+假定使用的变量都已定义,下面对过程proc的调用语法正确的是().(选择一项)
+
+proc(‘tt’,10,v3)
+proc(‘tt’,v2,v3)
+proc(v1,v2,v3)
+proc(‘tt’,10,’dd’)
+ 
+
+59:
+
+在Oracle中,使用以下语句创建视图;
+
+create or replace view myView
+
+as select * from orders
+
+where status=’p';
+
+假定Orders表中包含10条status=’p'的记录,当用户试图执行以下语句;
+
+update myView set status=’o’ where status=’p';
+
+下列正确的是()
+
+Oracle不执行更新操作,并返回错误信息
+Oracle成功执行更新操作,再次查看视图时返回0行记录
+Oracle成功执行更新操作,再次查看视图时返回10行记录
+Oracle执行更新操作,但提示错误信息
+60:
+
+在Oracle中,用于PL/SQL程序输出调试信息的内置程序包是D
+
+DBMS_STANDARD
+DBMS_ALERT
+DBMS_LOB
+DBMS_OUTPUT
+ 
+
+61:
+
+在Oracle中，用下列语句定义了一个过程：
+
+CREATE PROCEDURE proc(value1 IN VARCHAR2,value2 OUT NUMBER,value3 IN OUT VARCHAR2)
+
+IS
+
+BEGIN
+
+……
+
+END;
+
+假定使用的变量都已定义，下面对过程proc的调用语法正确的是(B)。
+
+proc(‘tt’,10,v3)
+proc(‘tt’,v2,v3)
+proc(v1,v2,v3)
+proc(‘tt’,10,’dd’)
+62:
+
+在Oracle中，使用以下语句创建视图：C
+
+CREATE OR REPLACE VIEW MyView
+
+AS SELECT * FROM orders
+
+Where status=’p';
+
+假定orders表中包含10条status=’p'的记录，当用户试图执行以下语句：
+
+UPDATE MyView SET status=’o’ WHERE status=’p';
+
+下列描述正确的是()。
+
+Oracle不执行更新操作，并返回错误信息
+Oracle成功执行更新操作，再次查看视图时返回0行记录
+Oracle成功执行更新操作，再次查看视图时返回10行记录
+Oracle执行更新操作，但提示错误信息
+63:
+
+在Oracle中,语句()将ORDER_DATE日期值’2000年3月18日’显示为’2000年1月1日’(选择两项)
+
+select round(order_date,’day’)from inventory
+select round(order_date,’year’)from inventory
+select round(order_date,’month’)from inventory
+select round(to_char(order_date,’yyyy’))from inventory
+64:
+
+在Oracle中,使用下列语句产生序列:
+
+CREATE SEQUENCE id;
+
+Oracle服务器会预开辟内存并维持的序列值有()个(选择一项)
+
+0
+10
+20
+100
+292:
+65:
+
+在Oracle中,以下工具可以逻辑备份数据库对象或整个数据库().
+
+sql*plus
+导出实用程序
+导入实用程序
+sql*loader
+66:
+
+在Oracle中,INSTEAD OF触发器主要用于()
+
+表
+表和视力图
+基于单个表的视图
+基于多个表的视图
+67:
+
+在Oracle中，用于显示PL/SQL程序输出调试信息的内置程序包是()。
+
+DBMS_STANDARD
+DBMS_ALERT
+DBMS_LOB
+DBMS_OUTPUT
+68:
+
+在Oracle中，有一个名为seq的序列对象，以下语句能返回序列值但不会引起序列值增加的是()。
+
+select seq.ROWNUM form dual;
+select seq.ROWID form dual;
+select seq.CURRVAL form dual;
+select seq.NEXTVAL form dual;
+69:
+
+在Oracle中，事务中使用下列SQL语句不会引起锁定()。
+
+SELECT
+INSERT
+UPDATE
+DELETE
+ 
+
+70.
+
+在Oracle中，通过命令()可以释放锁。
+
+INSERT
+DELETE
+ROLLBACK
+COMMIT
+71
+
+在Oracle中，关于触发器的描述正确的是()。
+
+触发器可以删除，但不能禁用
+触发器只能用于表
+触发器可以分为行级和语句级
+触发器是一个对关联表发出select、insert、update或delete语句是触发的存储过程
+72:
+
+ORACLE 中，执行语句： SELECT address1||’，’||address2||’，’||address2  “Adress” FROM employ；将会返回（）列。（选择一项）
+
+0
+1
+2
+3
+73:
+
+在Oracle中，PL/SQL块中定义了一个带参数的游标：
+
+CURSOR emp_cursor(dnum NUMBER) IS
+
+SELECT sal,comm FORM emp WHERE deptno=dnum;
+
+那么正确打开此游标的语句是(AD)。
+
+OPEN emp_cursor(20);
+OPEN emp_cursor FOR 20;
+OPEN emp_cursor USING 20;
+FOR rmp_rec IN emp_cursor(20) LOOP … ENDLOOP;
+74:
+
+Oracle数据库中，下面（）可以作为有效的列名。（选择一项）
+
+75: Column
+123_NUM
+NUM_#123
+#NUM123
+ 
+
+Oracle数据库中，通过（B）访问能够以最快的方式访问表中的一行。（选择一项）
+
+主键
+Rowid
+唯一索引
+整表扫描
+76:
+
+Oracle数据库中，以下()函数可以针对任意数据类型进行操作。
+
+TO_CHAR
+LOWER
+MAX
+CEIL
+77:
+
+Oracle数据库中，以下（）命令可以删除整个表中的数据，并且无法回滚。（选择一项）
+
+drop
+delete
+truncate
+cascade
+78:
+
+在Oracle中，下列(B)语句不能用于控制游标。
+
+Open
+Create
+Fetch
+Close
+79:
+
+在Oracle中有表”cd”，它包含属性”cdcode”，”category”和”cdname”，要查询category取值为”CLASSIC”或”ROCK”的行，应采用语句(AD)。
+
+SELECT * FROM cd WHERE category IN (‘CLASEIC’,'ROCK’);
+SELECT * FROM cd WHERE category BETWEEN ‘CLASSIC’ AND ‘ROCK’;
+SELECT * FROM cd WHERE category=’CLASSIC’ AND category=’ROCK’;
+SELECT * FROM cd WHERE category=’CLASSIC’ OR category=’ROCK’;
+80:
+
+在Oracle中，在执行SQL语句时，你不小心使用Update命令将所有的ID值设置成了11111，那么使用(C)命令可以取消这一操作。
+
+EXIT
+COMMIT
+ROLLBACK
+UNDO
+81
+
+在Oracle中，数据库中的触发器是一个对关联表发出insert、update或（A）语句时触发的存储过程。（选择一项）
+
+A     delete
+
+B     drop
+
+C     create
+
+D     truncate
+
+ 
+
+82
+
+在Oracle 中，使用了如下的语句创建用户TOM，则对于该用户而言，以下说法错误的是（D）。（选择一项）CREATE USER TOM IDENTIFIED BY TOMSYS
+
+A     该用户的口令为TOMSYS
+
+B     TOM默认为表空间为SYSTEM
+
+C     TOM 的临时表空间为TEMP
+
+D     使ORANT UPDATE 命令可以修改TOM的口令
+
+ 
+
+83
+
+在Oracle中，下述（A）命令会使挂起的事务完成。（选择一项）。（选择一项）
+
+A     COMMIT
+
+B     DELETE
+
+C     UPDATE
+
+D     SELECT
+
+e)    INSERT
+
+84
+
+游标变量的类型是(B )
+
+A     隐式游标
+
+B     显示游标
+
+C     REF游标
+
+D     循环游标
+
+ 
+
+85
+
+在非归档方式下操作的数据库禁用了（A）。（选择一项）
+
+A     归档日志。
+
+B     联机日志。
+
+C     日志写入程序。
+
+D     日志文件。
+
+ 
+
+86
+
+由于软硬件问题导致的读写数据库文件失败，属于（D）故障。（选择一项）
+
+A     实例
+
+B     语句
+
+C     用户进程
+
+D     介质
+
+ 
+
+87
+
+(C )参数用于确定是否要导入整个导出文件
+
+A     constranints
+
+B     tables
+
+C     full
+
+D     file
+
+ 
+
+88
+
+在oracle程序中处理语句时发生的逻辑错误导致(C )故障
+
+A     实例
+
+B     介质
+
+C     语句
+
+D     用户进程
+
+ 
+
+89
+
+以下哪种备份方式需要在完全关闭数据库后进行。
+
+A     无归档日志模式。
+
+B     归档日志模式。
+
+C     使用导出实用程序进行逻辑备份。
+
+D     以上都不对。
+
+90
+
+(B)方式的导出会从指定的表中导出所有的数据。（选择一项）
+
+A     分区
+
+B     表
+
+C     全部数据库
+
+D     表空间
+
+91
+
+使用（B）命令可查看在创建触发器时发生的编译错误
+
+A     View errors
+
+B     Show errors
+
+C     Display errors
+
+D     Check errors
+
+ 
+
+92
+
+(A)包用于显示pl/sql块和存储过程中的调试信息
+
+A     Dbms_output。
+
+B     Dbms_standadr。
+
+C     Dbms_Input。
+
+D     Dbms_session。
+
+ 
+
+93
+
+(A)触发器允许触发操作的语句访问行的列值
+
+A     行级 :old :new
+
+B     语句级
+
+C     模式
+
+D     数据库级
+
+ 
+
+94
+
+要审计用户执行的create,drop,和alter等ddl语句，应创建(E )触发器
+
+A     行级
+
+B     语句级
+
+C     Instead of
+
+D     模式
+
+e)    数据库
+
+ 
+
+95
+
+Oracle内置程序包由(A )用户所有
+
+A     sys
+
+B     system
+
+C     scott
+
+D     Pub lic
+
+ 
+
+96
+
+( D)程序包用于读写操作系统文本文件
+
+A     Dbms_output
+
+B     Dbms_lob (图片，电影)
+
+C     Dbms_random
+
+D     Utl_file
+
+97
+
+以下不属于命令的pl/sql块的是( )
+
+A     程序包
+
+B     过程。
+
+C     游标。
+
+D     函数
+
+ 
+
+ 
+
+98
+
+执行特定任务的子程序是( AB)
+
+A     函数
+
+B     过程。
+
+C     程序包
+
+D     游标。
+
+ 
+
+99
+
+子程序的(A )模式参数可以在调用子程序时指定一个常量
+
+A     in
+
+B     out
+
+C     In out
+
+D     inout
+
+ 
+
+100
+
+下面关于主事务处理和自主事务处理的说法错误的是( D)
+
+A     自主事务处理结果的变化不倚赖于主事务处理的状态
+
+B     自主事务处理提交或回退时，不影响主事务处理的结果
+
+C     自主事务处理提交，对主事务处理是不可见的
+
+D     自主事务处理还可以启动其他自主事务处理
+
+ 
+
+Create   proc p1
+
+Begin
+
+Insert …..
+
+P2();
+
+Update ….
+
+Commit;
+
+End;
+
+ 
+
+Create proc p2
+
+Begin
+
+Atuo………
+
+Inusert….
+
+Rollback;
+
+End;
+
+ 
+
+ 
+
+用 JDBC 查询学生成绩单, 把主要代码写出来（考试概率极大）.
+Connection cn = null;
+PreparedStatement pstmt =null;
+Resultset rs = null;
+try
+{
+	Class.forname(driveClassName);
+	cn =  DriverManager.getConnection(url,username,password);
+	pstmt = cn.prepareStatement(“select  score.* from score ,student “ +
+		“where score.stuId = student.id and student.name = ?”);
+	pstmt.setString(1,studentName);
+	Resultset rs = pstmt.executeQuery();
+	while(rs.next())
+	{
+		system.out.println(rs.getInt(“subject”)  +  “    ” + rs.getFloat(“score”) );
+	}
+}catch(Exception e){e.printStackTrace();}
+finally
+{
+	if(rs != null) try{ rs.close() }catch(exception e){}
+	if(pstmt != null) try{pstmt.close()}catch(exception e){}
+	if(cn != null) try{ cn.close() }catch(exception e){}
+}
+
+1. Oracle跟SQL Server 2005的区别？
+宏观上：
+1. 最大的区别在于平台，oracle可以运行在不同的平台上，sql server只能运行在windows平台上，由于windows平台的稳定性和安全性影响了sql server的稳定性和安全性
+2. oracle使用的脚本语言为PL-SQL，而sql server使用的脚本为T-SQL
+微观上： 从数据类型,数据库的结构等等回答 
+
+2. 如何使用Oracle的游标？
+1.  oracle中的游标分为显示游标和隐式游标
+2.  显示游标是用cursor...is命令定义的游标，它可以对查询语句(select)返回的多条记录进行处理；隐式游标是在执行插入 (insert)、删除(delete)、修改(update)和返回单条记录的查询(select)语句时由PL/SQL自动定义的。
+3. 显式游标的操作：打开游标、操作游标、关闭游标；PL/SQL隐式地打开SQL游标，并在它内部处理SQL语句，然后关闭它 
+
+3. Oracle中function和procedure的区别？
+1. 可以理解函数是存储过程的一种
+2. 函数可以没有参数,但是一定需要一个返回值，存储过程可以没有参数,不需要返回值
+3. 函数return返回值没有返回参数模式，存储过程通过out参数返回值, 如果需要返回多个参数则建议使用存储过程
+4. 在sql数据操纵语句中只能调用函数而不能调用存储过程 
+
+4. Oracle的导入导出有几种方式，有何区别？
+1. 使用oracle工具 exp/imp
+2. 使用plsql相关工具
+方法1. 导入/导出的是二进制的数据， 2.plsql导入/导出的是sql语句的文本文件 
+
+5. Oracle中有哪几种文件？
+数据文件（一般后缀为.dbf或者.ora），日志文件(后缀名.log)，控制文件（后缀名为.ctl） 
+
+6. 怎样优化Oracle数据库，有几种方式？
+个人理解，数据库性能最关键的因素在于IO，因为操作内存是快速的，但是读写磁盘是速度很慢的，优化数据库最关键的问题在于减少磁盘的IO，就个人理解应该分为物理的和逻辑的优化， 物理的是指oracle产品本身的一些优化，逻辑优化是指应用程序级别的优化
+物理优化的一些原则：
+1. Oracle的运行环境（网络，硬件等）
+2. 使用合适的优化器
+3. 合理配置oracle实例参数
+4. 建立合适的索引（减少IO）
+5. 将索引数据和表数据分开在不同的表空间上（降低IO冲突）
+6. 建立表分区，将数据分别存储在不同的分区上（以空间换取时间，减少IO）
+   逻辑上优化：
+1. 可以对表进行逻辑分割，如中国移动用户表，可以根据手机尾数分成10个表，这样对性能会有一定的作用
+2. Sql语句使用占位符语句，并且开发时候必须按照规定编写sql语句（如全部大写，全部小写等）oracle解析语句后会放置到共享池中
+如： select * from Emp where name=?  这个语句只会在共享池中有一条，而如果是字符串的话，那就根据不同名字存在不同的语句，所以占位符效率较好
+3. 数据库不仅仅是一个存储数据的地方，同样是一个编程的地方，一些耗时的操作，可以通过存储过程等在用户较少的情况下执行，从而错开系统使用的高峰时间，提高数据库性能
+4. 尽量不使用*号，如select * from Emp，因为要转化为具体的列名是要查数据字典，比较耗时
+5. 选择有效的表名
+对于多表连接查询，可能oracle的优化器并不会优化到这个程度， oracle 中多表查询是根据FROM字句从右到左的数据进行的，那么最好右边的表（也就是基础表）选择数据较少的表，这样排序更快速，如果有link表（多对多中间表），那么将link表放最右边作为基础表，在默认情况下oracle会自动优化，但是如果配置了优化器的情况下，可能不会自动优化，所以平时最好能按照这个方式编写sql
+6. Where字句 规则
+Oracle 中Where字句时从右往左处理的，表之间的连接写在其他条件之前，能过滤掉非常多的数据的条件，放在where的末尾， 另外!=符号比较的列将不使用索引，列经过了计算（如变大写等）不会使用索引（需要建立起函数）， is null、is not null等优化器不会使用索引 
+
+7. 使用Exits Not Exits 替代 In  Not in
+8. 合理使用事务，合理设置事务隔离性
+数据库的数据操作比较消耗数据库资源的，尽量使用批量处理，以降低事务操作次数
+7. Oracle中字符串用什么符号链接？
+Oracle中使用 || 这个符号连接字符串 如 ‘abc’ || ‘d’
+8. Oracle分区是怎样优化数据库的?
+Oracle的分区可以分为：列表分区、范围分区、散列分区、复合分区。
+1.  增强可用性：如果表的一个分区由于系统故障而不能使用，表的其余好的分区仍可以使用；
+2.  减少关闭时间：如果系统故障只影响表的一部份分区，那么只有这部份分区需要修复，可能比整个大表修复花的时间更少；
+3.  维护轻松：如果需要得建表，独产管理每个公区比管理单个大表要轻松得多；
+4.  均衡I/O：可以把表的不同分区分配到不同的磁盘来平衡I/O改善性能；
+5.  改善性能：对大表的查询、增加、修改等操作可以分解到表的不同分区来并行执行，可使运行速度更快
+6.  分区对用户透明，最终用户感觉不到分区的存在。
+9. Oracle是怎样分页的？
+Oracle中使用rownum来进行分页, 这个是效率最好的分页方法，hibernate也是使用rownum来进行oralce分页的
+select * from
+  ( select rownum r,a from tabName where rownum <= 20 )
+where r > 10
+10. Oralce怎样存储文件，能够存储哪些文件？
+Oracle 能存储 clob、nclob、 blob、 bfile
+Clob  可变长度的字符型数据，也就是其他数据库中提到的文本型数据类型
+Nclob 可变字符类型的数据，不过其存储的是Unicode字符集的字符数据
+Blob  可变长度的二进制数据
+Bfile  数据库外面存储的可变二进制数据
+11. Oracle中使用了索引的列，对该列进行where条件查询、分组、排序、使用聚集函数，哪些用到了索引？
+均会使用索引， 值得注意的是复合索引（如在列A和列B上建立的索引）可能会有不同情况
+12. 数据库怎样实现每隔30分钟备份一次？
+通过操作系统的定时任务调用脚本导出数据库
+13. Oracle中where条件查询和排序的性能比较？
+Order by使用索引的条件极为严格，只有满足如下情况才可以使用索引，
+1.order by中的列必须包含相同的索引并且索引顺序和排序顺序一致
+2. 不能有null值的列
+所以排序的性能往往并不高，所以建议尽量避免order by
+14. 解释冷备份和热备份的不同点以及各自的优点？
+冷备份发生在数据库已经正常关闭的情况下，将关键性文件拷贝到另外位置的一种说法
+热备份是在数据库运行的情况下，采用归档方式备份数据的方法
+冷备的优缺点：
+1．是非常快速的备份方法（只需拷贝文件）
+2．容易归档（简单拷贝即可）
+3．容易恢复到某个时间点上（只需将文件再拷贝回去）
+4．能与归档方法相结合，作数据库“最新状态”的恢复。
+5．低度维护，高度安全。
+冷备份不足：
+1．单独使用时，只能提供到“某一时间点上”的恢复。
+2．在实施备份的全过程中，数据库必须要作备份而不能作其它工作。也就是说，在冷备份过程中，数据库必须是关闭状态。
+3．若磁盘空间有限，只能拷贝到磁带等其它外部存储设备上，速度会很慢。
+4．不能按表或按用户恢复。  
+
+热备的优缺点 
+
+1．可在表空间或数据文件级备份，备份时间短。
+2．备份时数据库仍可使用。
+3．可达到秒级恢复（恢复到某一时间点上）。
+4．可对几乎所有数据库实体作恢复。
+5．恢复是快速的，在大多数情况下在数据库仍工作时恢复。
+  热备份的不足是：
+  1．不能出错，否则后果严重。
+  2．若热备份不成功，所得结果不可用于时间点的恢复。
+      3．因难于维护，所以要特别仔细小心，不允许“以失败而告终”。
+15. 解释data block , extent 和 segment的区别？
+data block 数据块，是oracle最小的逻辑单位，通常oracle从磁盘读写的就是块
+extent 区，是由若干个相邻的block组成
+segment段，是有一组区组成
+tablespace表空间，数据库中数据逻辑存储的地方，一个tablespace可以包含多个数据文件
+16. 比较truncate和delete命令 ？
+1. Truncate 和delete都可以将数据实体删掉，truncate 的操作并不记录到 rollback日志，所以操作速度较快，但同时这个数据部能恢复
+2. Delete操作不腾出表空间的空间
+3. Truncate 不能对视图等进行删除
+4. Truncate是数据定义语言（DDL），而delete是数据操纵语言(DML)
+17. 解释什么是死锁，如何解决Oracle中的死锁？
+简言之就是存在加了锁而没有解锁，可能是使用锁没有提交或者回滚事务，如果是表级锁则不能操作表，客户端处于等在状态，如果是行级锁则不能操作锁定行
+解决办法：
+1. 查找出被锁的表
+select b.owner,b.object_name,a.session_id,a.locked_mode
+from v$locked_object a,dba_objects b
+where b.object_id = a.object_id; 
+
+select b.username,b.sid,b.serial#,logon_time
+from v$locked_object a,v$session b
+where a.session_id = b.sid order by b.logon_time;
+2. 杀进程中的会话
+alter system kill session "sid,serial#";
+18. 简述oracle中 dml、ddl、dcl的使用
+Dml 数据操纵语言，如select、update、delete，insert
+Ddl 数据定义语言，如create table 、drop table 等等
+Dcl 数据控制语言， 如 commit、 rollback、grant、 invoke等
+19. 说说oracle中的经常使用到得函数
+Length 长度、 lower 小写、upper 大写， to_date 转化日期， to_char转化字符
+Ltrim 去左边空格、 rtrim去右边空格，substr取字串，add_month增加或者减掉月份、to_number转变为数字
+20. 怎样创建一个存储过程, 游标在存储过程怎么使用, 有什么好处?
+附：存储过程的一般格式，游标使用参考问题
+1 .使用游标可以执行多个不相关的操作.如果希望当产生了结果集后,对结果集中的数据进行多种不相关的数据操作
+2. 使用游标可以提供脚本的可读性
+3. 使用游标可以建立命令字符串,使用游标可以传送表名,或者把变量传送到参数中,以便建立可以执行的命令字符串.
+但是个人认为游标操作效率不太高，并且使用时要特别小心，使用完后要及时关闭
+存储过程优缺点：
+优点：
+1. 存储过程增强了SQL语言的功能和灵活性。存储过程可以用流控制语句编写，有很强的灵活性，可以完成复杂的判断和较复杂的运算。
+2. 可保证数据的安全性和完整性。
+  3． 通过存储过程可以使没有权限的用户在控制之下间接地存取数据库，从而保证数据的安全。
+      通过存储过程可以使相关的动作在一起发生，从而可以维护数据库的完整性。
+3. 再运行存储过程前，数据库已对其进行了语法和句法分析，并给出了优化执行方案。这种已经编译好的过程可极大地改善SQL语句的性能。 由于执行SQL语句的大部分工作已经完成，所以存储过程能以极快的速度执行。
+4. 可以降低网络的通信量, 不需要通过网络来传送很多sql语句到数据库服务器了
+5. 使体现企业规则的运算程序放入数据库服务器中，以便集中控制
+       当企业规则发生变化时在服务器中改变存储过程即可，无须修改任何应用程序。企业规则的特点是要经常变化，如果把体现企业规则的运算程序放入应用程序中，则当企业规则发生变化时，就需要修改应用程序工作量非常之大（修改、发行和安装应用程序）。如果把体现企业规则的 运算放入存储过程中，则当企业规则发生变化时，只要修改存储过程就可以了，应用程序无须任何变化。
+缺点：
+1. 可移植性差
+2. 占用服务器端多的资源，对服务器造成很大的压力
+3. 可读性和可维护性不好 
+
+Create  [or replace]  procedure 过程名字（参数 …）as
+vs_ym_sn_end CHAR(6);     --同期终止月份
+CURSOR cur_1 IS   --定义游标(简单的说就是一个可以遍历的结果集)
+SELECT area_code,CMCODE,SUM(rmb_amt)/10000 rmb_amt_sn,SUM(usd_amt)/10000 usd_amt_sn
+FROM BGD_AREA_CM_M_BASE_T
+  WHERE ym >= vs_ym_sn_beg
+  AND ym <= vs_ym_sn_end
+GROUP BY area_code,CMCODE;
+BEGIN
+--用输入参数给变量赋初值，用到了Oralce的SUBSTR TO_CHAR ADD_MONTHS TO_DATE 等很常用的函数。
+vs_ym_beg := SUBSTR(is_ym,1,6);
+vs_ym_end := SUBSTR(is_ym,7,6);
+vs_ym_sn_beg := TO_CHAR(ADD_MONTHS(TO_DATE(vs_ym_beg,"yyyymm"), -12),"yyyymm");
+vs_ym_sn_end := TO_CHAR(ADD_MONTHS(TO_DATE(vs_ym_end,"yyyymm"), -12),"yyyymm");
+--先删除表中特定条件的数据。
+DELETE FROM xxxxxxxxxxx_T WHERE ym = is_ym;
+  --然后用内置的DBMS_OUTPUT对象的put_line方法打印出影响的记录行数，其中用到一个系统变量SQL%rowcount
+DBMS_OUTPUT.put_line("del上月记录="||SQL%rowcount||"条"); 
+
+INSERT INTO xxxxxxxxxxx_T(area_code,ym,CMCODE,rmb_amt,usd_amt)
+SELECT area_code,is_ym,CMCODE,SUM(rmb_amt)/10000,SUM(usd_amt)/10000
+FROM BGD_AREA_CM_M_BASE_T
+  WHERE ym >= vs_ym_beg
+  AND ym <= vs_ym_end
+GROUP BY area_code,CMCODE; 
+
+DBMS_OUTPUT.put_line("ins当月记录="||SQL%rowcount||"条");
+--遍历游标处理后更新到表。遍历游标有几种方法，用for语句是其中比较直观的一种。
+FOR rec IN cur_1 LOOP
+  UPDATE xxxxxxxxxxx_T
+  SET rmb_amt_sn = rec.rmb_amt_sn,usd_amt_sn = rec.usd_amt_sn
+   WHERE area_code = rec.area_code
+   AND CMCODE = rec.CMCODE
+   AND ym = is_ym;
+END LOOP;
+COMMIT;
+--错误处理部分。OTHERS表示除了声明外的任意错误。SQLERRM是系统内置变量保存了当前错误的详细信息。
+EXCEPTION
+   WHEN OTHERS THEN
+      vs_msg := "ERROR IN xxxxxxxxxxx_p("||is_ym||"):"||SUBSTR(SQLERRM,1,500);
+   ROLLBACK;
+   --把当前错误记录进日志表。
+   INSERT INTO LOG_INFO(proc_name,error_info,op_date)
+   VALUES("xxxxxxxxxxx_p",vs_msg,SYSDATE);
+   COMMIT;
+   RETURN;
+END;
+21. 怎样创建一个一个索引,索引使用的原则,有什么优点和缺点
+创建标准索引：
+CREATE  INDEX 索引名 ON 表名 (列名)  TABLESPACE 表空间名;
+创建唯一索引:
+CREATE unique INDEX 索引名 ON 表名 (列名)  TABLESPACE 表空间名;
+创建组合索引:
+CREATE INDEX 索引名 ON 表名 (列名1,列名2)  TABLESPACE 表空间名;
+创建反向键索引:
+CREATE INDEX 索引名 ON 表名 (列名) reverse TABLESPACE 表空间名;
+索引使用原则：
+索引字段建议建立NOT NULL约束
+经常与其他表进行连接的表，在连接字段上应该建立索引；
+经常出现在Where子句中的字段且过滤性很强的，特别是大表的字段，应该建立索引；
+可选择性高的关键字 ，应该建立索引；
+可选择性低的关键字，但数据的值分布差异很大时，选择性数据比较少时仍然可以利用索引提高效率
+复合索引的建立需要进行仔细分析；尽量考虑用单字段索引代替：
+A、正确选择复合索引中的第一个字段，一般是选择性较好的且在where子句中常用的字段上；
+B、复合索引的几个字段经常同时以AND方式出现在Where子句中可以建立复合索引；否则单字段索引；
+C、如果复合索引中包含的字段经常单独出现在Where子句中，则分解为多个单字段索引；
+D、如果复合索引所包含的字段超过3个，那么仔细考虑其必要性，考虑减少复合的字段；
+E、如果既有单字段索引，又有这几个字段上的复合索引，一般可以删除复合索引；
+频繁DML的表，不要建立太多的索引；
+不要将那些频繁修改的列作为索引列；
+索引的优缺点：
+有点：
+1. 创建唯一性索引，保证数据库表中每一行数据的唯一性
+2. 大大加快数据的检索速度，这也是创建索引的最主要的原因
+3. 加速表和表之间的连接，特别是在实现数据的参考完整性方面特别有意义。
+4. 在使用分组和排序子句进行数据检索时，同样可以显著减少查询中分组和排序的时间。
+缺点：
+1. 索引创建在表上，不能创建在视图上
+2. 创建索引和维护索引要耗费时间，这种时间随着数据量的增加而增加
+3. 索引需要占物理空间，除了数据表占数据空间之外，每一个索引还要占一定的物理空间，如果要建立聚簇索引，那么需要的空间就会更大
+4. 当对表中的数据进行增加、删除和修改的时候，索引也要动态的维护，降低了数据的维护速度 
+
+22. 怎样创建一个视图,视图的好处, 视图可以控制权限吗?
+create view 视图名 as select 列名 [别名]  …  from 表 [unio [all] select … ] ]
+好处：
+1. 可以简单的将视图理解为sql查询语句，视图最大的好处是不占系统空间
+2. 一些安全性很高的系统，不会公布系统的表结构，可能会使用视图将一些敏感信息过虑或者重命名后公布结构
+3. 简化查询
+可以控制权限的，在使用的时候需要将视图的使用权限grant给用户
+23. 怎样创建一个触发器, 触发器的定义, 触发器的游标怎样定义
+CREATE [OR REPLACE] TIGGER触发器名 触发时间 触发事件
+　ON表名
+　[FOR EACH ROW]
+　BEGIN
+　　pl/sql语句
+    CURSOR  游标名 is  SELECT * FROM 表名 （定义游标）
+　　END
+　其中：
+　触发器名：触发器对象的名称。
+　由于触发器是数据库自动执行的，因此该名称只是一个名称，没有实质的用途。
+触发时间：指明触发器何时执行，该值可取：
+before---表示在数据库动作之前触发器执行;
+after---表示在数据库动作之后出发器执行。
+触发事件：指明哪些数据库动作会触发此触发器：
+　　 insert：数据库插入会触发此触发器;  
+
+24. oracle创建表的几种方式;应该注意些什么
+不知道这个题目是不是记错了，感觉很怪
+1. 使用图形工具创建表
+2. 使用数据ddl语句创建表
+3. 可以在plsql代码中动态创建表
+应该注意： 是否有创建表的权限， 使用什么表空间等
+25. 怎样将一个旧数据库数据移到一个新的数据库
+1. Imp/exp将数据库中的数据导入到新的库中
+2. 如果是存储迁移直接将存储设备挂到新机器上
+26. 主键有几种;
+字符型，整数型、复合型
+27. oracle的锁又几种,定义分别是什么;
+1.  行共享锁 (ROW SHARE)
+2.  行排他锁(ROW EXCLUSIVE)
+3 . 共享锁(SHARE)
+4.  共享行排他锁(SHARE ROW EXCLUSIVE)
+5.  排他锁(EXCLUSIVE)
+使用方法：
+SELECT * FROM order_master WHERE vencode="V002"
+FOR UPDATE WAIT 5;
+LOCK TABLE order_master IN SHARE MODE;
+LOCK TABLE itemfile IN EXCLUSIVE MODE NOWAIT;
+ORACLE锁具体分为以下几类：
+1.按用户与系统划分，可以分为自动锁与显示锁
+自动锁：当进行一项数据库操作时，缺省情况下，系统自动为此数据库操作获得所有有必要的锁。
+显示锁：某些情况下，需要用户显示的锁定数据库操作要用到的数据，才能使数据库操作执行得更好，显示锁是用户为数据库对象设定的。
+2 . 按锁级别划分，可分为共享锁与排它锁
+共享锁：共享锁使一个事务对特定数据库资源进行共享访问——另一事务也可对此资源进行访问或获得相同共享锁。共享锁为事务提供高并发性，但如拙劣的事务设计+共享锁容易造成死锁或数据更新丢失。
+排它锁：事务设置排它锁后，该事务单独获得此资源，另一事务不能在此事务提交之前获得相同对象的共享锁或排它锁。
+3.按操作划分，可分为DML锁、DDL锁
+DML锁又可以分为，行锁、表锁、死锁
+行锁：当事务执行数据库插入、更新、删除操作时，该事务自动获得操作表中操作行的排它锁。
+表级锁：当事务获得行锁后，此事务也将自动获得该行的表锁(共享锁),以防止其它事务进行DDL语句影响记录行的更新。事务也可以在进行过程中获得共享锁或排它锁，只有当事务显示使用LOCK TABLE语句显示的定义一个排它锁时，事务才会获得表上的排它锁,也可使用LOCK TABLE显示的定义一个表级的共享锁(LOCK TABLE具体用法请参考相关文档)。
+死锁：当两个事务需要一组有冲突的锁，而不能将事务继续下去的话，就出现死锁。
+如事务1在表A行记录#3中有一排它锁，并等待事务2在表A中记录#4中排它锁的释放，而事务2在表A记录行#4中有一排它锁，并等待事务; 1在表A中记录#3中排它锁的释放，事务1与事务2彼此等待，因此就造成了死锁。死锁一般是因拙劣的事务设计而产生。死锁只能使用SQL下:alter system kill session "sid,serial#"；或者使用相关操作系统kill进程的命令，如UNIX下kill -9 sid,或者使用其它工具杀掉死锁进程。
+DDL锁又可以分为：排它DDL锁、共享DDL锁、分析锁
+排它DDL锁：创建、修改、删除一个数据库对象的DDL语句获得操作对象的 排它锁。如使用alter table语句时，为了维护数据的完成性、一致性、合法性，该事务获得一排它DDL锁。
+共享DDL锁：需在数据库对象之间建立相互依赖关系的DDL语句通常需共享获得DDL锁。
+如创建一个包，该包中的过程与函数引用了不同的数据库表，当编译此包时，该事务就获得了引用表的共享DDL锁。
+分析锁：ORACLE使用共享池存储分析与优化过的SQL语句及PL/SQL程序，使运行相同语句的应用速度更快。一个在共享池中缓存的对象获得它所引用数据库对象的分析锁。分析锁是一种独特的DDL锁类型，ORACLE使用它追踪共享池对象及它所引用数据库对象之间的依赖关系。当一个事务修改或删除了共享池持有分析锁的数据库对象时，ORACLE使共享池中的对象作废，下次在引用这条SQL/PLSQL语句时，ORACLE重新分析编译此语句。
+4.内部闩锁
+内部闩锁：这是ORACLE中的一种特殊锁，用于顺序访问内部系统结构。当事务需向缓冲区写入信息时，为了使用此块内存区域，ORACLE首先必须取得这块内存区域的闩锁，才能向此块内存写入信息。 
+
+29. rowid,rownum的定义
+1. rowid和rownum都是虚列
+2. rowid是物理地址，用于定位oracle中具体数据的物理存储位置
+3. rownum则是sql的输出结果排序，从下面的例子可以看出其中的区别。
+30. oracle中存储过程，游标和函数的区别
+游标类似指针，游标可以执行多个不相关的操作.如果希望当产生了结果集后,对结果集中的数据进行多 种不相关的数据操作
+函数可以理解函数是存储过程的一种； 函数可以没有参数,但是一定需要一个返回值，存储过程可以没有参数,不需要返回值；两者都可以通过out参数返回值, 如果需要返回多个参数则建议使用存储过程；在sql数据操纵语句中只能调用函数而不能调用存储过程
+31. 使用oracle 伪列删除表中重复记录：
+Delete  table t  where t.rowid!=(select  max(t1.rowid)  from  table1 t1 where  t1.name=t.name)
+
+
+
+面试笔试中最爱考的oracle 查询题，历来被称为经典，面对经典查询你会几个呢？
+ 
+
+使用scott/tiger用户下的emp表和dept表完成下列练习，表的结构说明如下
+emp员工表(empno员工号/ename员工姓名/job工作/mgr上级编号/hiredate受雇日期/sal薪金/comm佣金/deptno部门编号)
+dept部门表(deptno部门编号/dname部门名称/loc地点)
+工资 ＝ 薪金 ＋ 佣金
+1．列出至少有一个员工的所有部门。
+2．列出薪金比“SMITH”多的所有员工。
+3．列出所有员工的姓名及其直接上级的姓名。
+4．列出受雇日期早于其直接上级的所有员工。
+5．列出部门名称和这些部门的员工信息，同时列出那些没有员工的部门。
+6．列出所有“CLERK”（办事员）的姓名及其部门名称。
+7．列出最低薪金大于1500的各种工作。
+8．列出在部门“SALES”（销售部）工作的员工的姓名，假定不知道销售部的部门编号。
+9．列出薪金高于公司平均薪金的所有员工。
+10．列出与“SCOTT”从事相同工作的所有员工。
+11．列出薪金等于部门30中员工的薪金的所有员工的姓名和薪金。
+12．列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金。
+13．列出在每个部门工作的员工数量、平均工资和平均服务期限。
+14．列出所有员工的姓名、部门名称和工资。
+15．列出所有部门的详细信息和部门人数。
+16．列出各种工作的最低工资。
+17．列出各个部门的MANAGER（经理）的最低薪金。
+18．列出所有员工的年工资,按年薪从低到高排序。解答：
+1．列出至少有一个员工的所有部门。(两个表联合查询，及group by…having的用法)
+select dname from dept where deptno in(select deptno from emp group by deptno having count(*)>1);
+2．列出薪金比“SMITH”多的所有员工。(经典的自连接查询)
+select ename from emp where sal>(select sal from emp where ename like’SMITH’);
+3．列出所有员工的姓名及其直接上级的姓名。(多次对自己查询,为表的取个别名，内部查询可以像对象一样引用外部的对象的字 段，这里引用与编程中的作用域相似，即与{}类比)
+select ename,(select ename from emp where empno in(a.mgr)) from emp a ;
+4．列出受雇日期早于其直接上级的所有员工。(同上,日期可直接拿来比较)
+select ename from emp a where HIREDATE<(select HIREDATE from emp where empno in(a.mgr));
+5．列出部门名称和这些部门的员工信息，同时列出那些没有员工的部门(以emp表为主，左连接查询)
+select dname,emp.* from dept left join emp on dept.deptno=emp.deptno;
+6．列出所有“CLERK”（办事员）的姓名及其部门名称。(域，注意())
+select ename,(select dname from dept where deptno in(a.deptno)) as dname from emp a where JOB like’CLERK’;
+7．列出最低薪金大于1500的各种工作。
+select job from emp where sal>1500;
+8．列出在部门“SALES”（销售部）工作的员工的姓名，假定不知道销售部的部门编号。(经典的两个表连接)
+select ename from emp where deptno=(select deptno from dept where dname like’SALES’);
+9．列出薪金高于公司平均薪金的所有员工。(反复查自己)
+select ename from emp where sal>( select avg( sal) from emp);
+10．列出与“SCOTT”从事相同工作的所有员工。(排除自己)
+select ename from emp where job in(select job from emp where ename like’SCOTT’) and ename!=’SCOTT’ ;
+11．列出薪金等于部门30中员工的薪金的所有员工的姓名和薪金。(any的用法，且排挤)
+select ename,sal from emp where sal=any(select sal from emp wheredeptno=30) and deptno!=30;
+12．列出薪金高于在部门30工作的所有员工的薪金的员工姓名和薪金。(max的用法)
+select sal,ename from emp where sal>(select max(sal) from emp where deptno=30);
+
+13．列出在每个(每个是关键字,对此group by)部门工作的员工数量、平均工资和平均服务期限。(经典的group by用法)select deptno,count(*),avg(a.sal),avg(sysdate-HIREDATE) from emp a group by deptno;
+14．列出所有员工的姓名、部门名称和工资.(经典的两个表的连接查询，用具体的名称替换一个表中的主键的id (解决很多人在实际运用中会遇到的不能绑定多列的问题)，也可用where来查询 ,与题5比较)
+select ename,sal,(select dname from dept a where a.deptno=b.deptno)as dname from emp b;
+15．列出所有部门的详细信息和部门人数。(因为是*，将显示dept和后面临时表b的全部字段(注意:不只是dept的字段,注意*号))
+select * from dept a left join (select deptno,count(*) from emp group by deptno) b on a.deptno=b.deptno ;
+16．列出各种(与每个同义(参看题13))工作的最低工资。
+select job,min(sal) from emp group by job ;
+
+17．列出各个部门的MANAGER（经理,经理唯一，不用group by）的最低薪金。select min(sal) from emp where job like’MANAGER’;(因为MANAGER是值不是字段，所以不能用小写)
+18．列出所有员工的年工资,按年薪从低到高排序。(nvl:空转化函数)
+select ename,(sal+nvl(comm,0))*12 as sal from emp order by sal ;
+
+ 
+
+Oracle基本操作笔试面试题之用户、角色、权限管理
+ 
+
+用户创建、修改、删除
+
+用户创建
+
+create user username profile default identified by “user_passwd” default tablespace
+
+tablespace_name account unlock;
+
+修改用户密码：
+
+alter user username identified by char_name；
+
+修改用户使用状态
+
+alter user username account unlock
+
+用户赋权限：
+
+grant connect,resource,select any table,update any table,delete any table,insert any
+
+table,select
+
+any dictionary,create any procedure,execute any procedure,create any TRIGGER,create
+
+any view, unlimited tablespace，
+
+drop any view,create any sequence,select any sequence,drop any sequence,CREATE
+
+DATABASE LINK,
+
+CREATE PUBLIC DATABASE LINK,DROP PUBLIC DATABASE LINK,CREATE
+
+ANY synonym,DROP ANY synonym,
+
+CREATE PUBLIC synonym,DROP PUBLIC SYNONYM,SELECT_CATALOG_ROLE
+
+to &u;
+
+ 
+
+给某一个用户赋予某张表的某种权限：
+
+grant privilege_name（select insert update） table_name to username;
+
+例如：
+
+grant update ON TABLE_NAME TO username;
+
+grant delete ON TABLE_NAME TO username;
+
+grant insert ON TABLE_NAME TO username;
+
+ 
+
+用户权限回收：
+
+revoke role_name from username;
+
+alter user username default role all;
+
+ 
+
+用户删除：
+
+Drop user username cascade （如果有数据，带 cascade 参数）
+
+查看用户属性和状态：
+
+select * from dba_users;
+
+select * from dba_sys_privs
+
+select * from dba_tab_privs
+
+ 
+
+ 
+
+权限名称：
+
+administer database trigger
+
+administer resource manager
+
+alter any cluster
+
+alter any dimension
+
+alter any evaluation context
+
+alter any index
+
+alter any indextype
+
+alter any library
+
+alter any outline
+
+alter any procedure
+
+alter any role
+
+alter any rule
+
+alter any rule set
+
+alter any sequence
+
+alter any snapshot
+
+alter any table
+
+alter any trigger
+
+alter any type
+
+alter database
+
+alter profile
+
+alter resource cost
+
+alter rollback segment
+
+alter session
+
+alter system
+
+alter tablespace
+
+alter user
+
+analyze any
+
+audit any
+
+audit system
+
+backup any table
+
+ 
+
+debug any procedure
+
+debug connect session
+
+delete any table
+
+dequeue any queue
+
+drop any cluster
+
+drop any context
+
+drop any dimension
+
+drop any directory
+
+drop any evaluation context
+
+drop any index
+
+drop any indextype
+
+drop any library
+
+drop any operator
+
+drop any outline
+
+drop any procedure
+
+drop any role
+
+drop any rule
+
+drop any rule set
+
+drop any sequence
+
+drop any snapshot
+
+drop any synonym
+
+drop any table
+
+drop any trigger
+
+drop any type
+
+drop any view
+
+drop profile
+
+drop public database link
+
+drop public synonym
+
+drop rollback segment
+
+drop tablespace
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+become user
+
+comment any table
+
+create any cluster
+
+create any context
+
+create any dimension
+
+create any directory
+
+create any evaluation context
+
+create any index
+
+create any indextype
+
+create any library
+
+create any operator
+
+create any outline
+
+create any procedure
+
+create any rule
+
+create any rule set
+
+create any sequence
+
+create any snapshot
+
+create any synonym
+
+create any table
+
+create any trigger
+
+create any type
+
+create any view
+
+create cluster
+
+create database link
+
+create dimension
+
+create evaluation context
+
+create indextype
+
+create library
+
+create operator
+
+create procedure
+
+create profile
+
+create public database link
+
+create public synonym
+
+create role
+
+create rollback segment
+
+create rule
+
+create rule set
+
+create sequence
+
+create session
+
+create user
+
+create view
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+drop user
+
+enqueue any queue
+
+execute any evaluation context
+
+execute any indextype
+
+execute any library
+
+execute any operator
+
+execute any procedure
+
+execute any rule
+
+execute any rule set
+
+execute any type
+
+exempt access policy
+
+flashback any table
+
+force any transaction
+
+force transaction
+
+global query rewrite
+
+grant any object privilege
+
+grant any privilege
+
+grant any role
+
+insert any table
+
+lock any table
+
+manage any queue
+
+manage tablespace
+
+on commit refresh
+
+query rewrite
+
+restricted session
+
+resumable
+
+select any dictionary
+
+select any sequence
+
+select any table
+
+under any table
+
+under any type
+
+under any view
+
+unlimited tablespace
+
+update any table
+
+create snapshot
+
+create synonym
+
+create table
+
+create tablespace
+
+create trigger
+
+create type
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2、角色创建、修改、删除
+
+ 
+
+ 
+
+角色创建
+
+create role role_name;
+
+角色权限修改
+
+grant privilege_name to role_name
+
+revoke privilege_name from role_name
+
+角色删除
+
+drop role role_name
+
+ 
+
+系统角色：
+
+AQ_ADMINISTRATOR_ROLE
+
+AQ_USER_ROLE
+
+AUTHENTICATEDUSER
+
+CONNECT
+
+CTXAPP
+
+DBA
+
+DELETE_CATALOG_ROLE
+
+EJBCLIENT
+
+EXECUTE_CATALOG_ROLE
+
+EXP_FULL_DATABASE
+
+GATHER_SYSTEM_STATISTICS
+
+HS_ADMIN_ROLE
+
+WKUSER
+
+WM_ADMIN_ROLE
+
+XDBADMIN
+
+ 
+
+ 
+
+ 
+
+3、权限增加和收回
+
+ 
+
+IMP_FULL_DATABASE
+
+JAVADEBUGPRIV
+
+JAVAIDPRIV
+
+JAVASYSPRIV
+
+JAVAUSERPRIV
+
+JAVA_ADMIN
+
+JAVA_DEPLOY
+
+LOGSTDBY_ADMINISTRATOR
+
+OEM_MONITOR
+
+RECOVERY_CATALOG_OWNER
+
+RESOURCE
+
+SALES_HISTORY_ROLE
+
+SELECT_CATALOG_ROLE
+
+grant privilege_name to role_name
+
+revoke privilege_name from role_name
+
+ 
+
+Oracle基本操作笔试面试题之表操作
+1、单表创建
+
+直接创建
+
+Create table table_name
+
+(
+
+
+
+ 
+
+ 
+
+（增加权限）
+
+（收回权限）
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+字段 1类型 1，
+
+字段 2类型 2，
+
+、、、、、
+
+字段 n类型 n
+
+) tablespace_name;
+
+ 
+
+创建类似表
+
+Create table table_name as select * from table_name1;
+
+创建表结构：
+
+Create table table_name as select * from table_name字段 1=字段 2；
+
+ 
+
+表查询：
+
+Select * from table_name;
+
+Select * from table_name where条件
+
+ 
+
+Select字段 1别名 1，字段 2
+
+ 
+
+别名 2，字段 n别名 n from table_name
+
+
+
+字段中可以进行代数运算，包括：＋－×÷，countsunavgetrunkround等函数
+
+表插入：
+
+Insert字段 1，字段 2、、字段 n into table_name value (字段值 1，字段值 2、、字段值 n )；
+
+ 
+
+循环插入：
+
+begin
+
+for i in 1..10 loop
+
+insert into table_name values (…);
+
+end loop;
+
+end;
+
+ 
+
+表更新：
+
+Update table_name set字段 1 where条件
+
+表删除：
+
+drop table table_name
+
+表记录删除：
+
+delete table_name where条件；
+
+truncate table table_name清空表记录，保留表结构
+
+表名修改：
+
+rename table_name1 to table_name2
+
+注意：表名修改后，索引还在
+
+ 
+
+ 
+
+表迁移，（从一个表空间迁移到另外一个表空间）
+
+alter table table_name move tablespace tablespace_name nologging parallele 4 ;
+
+注意：将表从一个表空间迁移到另外一个表空间，必须进行索引重建，存储过程、触发器、其
+
+他程序包都需要编译，以免执行报错。例如：
+
+表压缩：
+
+不同表空间： alter table table_name move tablespace tablespace_name compress;
+
+相同表空间：alter table table_name move compress;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+表统计信息收集
+
+exec dbms_stats.gather_table_stats(ownname => ‘username’,tabname
+
+=>’table_name’,degree =>10,cascade =>true,estimate_percent =>25);
+
+ 
+
+例如：
+
+exec dbms_stats.gather_table_stats(ownname => ‘test’,tabname
+
+=>’data_table1_name1′,degree =>4,cascade =>true,estimate_percent =>30);
+
+ 
+
+ 
+
+select a.row2_id, sum(nvl(b.item_value, 0))
+
+from zk.name _201001 a, zk.table_name _201001 b
+
+where a.so_row1 = b.so_row1 and a.row_a in (1, 4, 5) and a.row2_id = XXXXXXX and
+
+book_row3_id in (NNNNNXXX1, NNNNNXXX2, NNNNNXXX3, NNNNNXXX4,
+
+NNNNNXXX5, NNNNNXXX6) group by a.row _id;
+
+表语句执行很慢，检查执行计划，zk.table_name_201001 b不引用索引，做表分析、重建索引都无
+
+效，执行计划中均没有引用索引，最后强制使用索引效果明显，执行计划改变，索引引用。效果明
+
+显
+
+select /*+ index(b pk_table_name_201001)*/
+
+a.serv_id, sum(nvl(b.item_value, 0))
+
+from zk.name_201001 a, zk. table_name _201001 b
+
+where a. so_row1 = b.so_row1 and a.busi_code in (1, 4, 5) and a.row2_id = XXXXXXX and
+
+book_row3_id in (NNNNNXXX1, NNNNNXXX2, NNNNNXXX3, NNNNNXXX4,
+
+NNNNNXXX5, NNNNNXXX6)
+
+group by a.row2_id;
+
+ 
+
+ 
+
+ 
+
+2、分区表创建
+
+ 
+
+ 
+
+为了使大量的数据在读写操作和查询中速度更快，Oracle提供了对表和索引进行分区的技术，
+
+ 
+
+以改善大型应用系统的性能。使用分区的优点：
+
+ 
+
+A、增强可用性：如果表的某个分区出现故障，表在其他分区的数据仍然可用；
+
+ 
+
+B、维护方便：如果表的某个分区出现故障，需要修复数据，只修复该分区即可；
+
+ 
+
+C、均衡I/O：可以把不同的分区映射到磁盘以平衡I/O，改善整个系统性能；
+
+D、改善查询性能：对分区对象的查询可以仅搜索自己关心的分区，提高检索速度
+
+ 
+
+ 
+
+Oracle数据库提供对表或索引的分区方法有三种：
+
+ 
+
+1、范围分区
+
+ 
+
+2、Hash分区（散列分区）
+
+ 
+
+3、列表分区
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4、范围—散列分区
+
+ 
+
+5、范围—列表分区
+
+ 
+
+ 
+
+2.1、范围分区表
+
+分区表表创建：一般都是按照时间来创建
+
+create table table_name
+
+(
+
+row1 char1 not null,
+
+row2 char2 not null,
+
+、、、、、、
+
+rown  number not null
+
+)
+
+partition by range (paration_row)
+
+(
+
+partition partition_name1 values less than (to_date(‘value_name’, ‘yyyy-mm-dd’,
+
+‘nls_calendar=gregorian’)) tablespace tablespace_name1,
+
+partition partition_name2 values less than (to_date(‘value_name’, ‘yyyy-mm-dd’,
+
+‘nls_calendar=gregorian’)) tablespace tablespace_name2,
+
+、、、、、、、、、、
+
+partition partition_namen values less than (to_date(‘value_name’, ‘yyyy-mm-dd’,
+
+‘nls_calendar=gregorian’)) tablespace tablespace_namen,
+
+partition partmax values less than (maxvalue)
+
+tablespace ora_data
+
+pctfree 10
+
+initrans 16
+
+maxtrans 255
+
+storage
+
+(
+
+initial 64k
+
+minextents 1
+
+maxextents unlimited ))
+
+表插入：
+
+Insert into table_name1 as select * from table_name2
+
+ 
+
+表分区删除：
+
+alter table表名 truncate partition分区名称 drop storage;
+
+注意：分区删除以后，需要重新创建索引。
+
+ 
+
+ 
+
+分区分割：
+
+alter table table_name split partition partmax at(to_date(‘values_name’, ‘yyyy-mm-dd’)) into
+
+(partition prtition_namexx tablespace tablespace_name , partition partmax);
+
+ 
+
+分区查询：
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+select * from table_name partition (partition_name);
+
+ 
+
+2.2、hash分区表（散列分区）
+
+Hash分区表创建：hash分区表的分区数量一般是 2的 n次幂，这样记录分布在各个分区上就
+
+比较均匀，可以进行 I/O的均衡。
+
+create table table_name
+
+(
+
+row1 char1 not null,
+
+row2 char2 not null,
+
+、、、、、、
+
+rown  NUMBER not null
+
+)
+
+partition by hash (paration_row)
+
+(
+
+partition partition_name1 tablespace tablespace_name1,
+
+partition partition_name2 tablespace tablespace_name2,
+
+partition partition_name3 tablespace tablespace_name3
+
+、、、、、、、、、、
+
+partition partition_nameX tablespace tablespace_nameX
+
+)
+
+ 
+
+表插入：
+
+insert into table_name1 as select * from table_name2
+
+ 
+
+分区查询：
+
+Select * From table_name Partition (partition_name); hash分区表一般由于数据分布均衡性，查
+
+询不是
+
+通过对分区的操作进行的。update、insert操作同普通表。
+
+ 
+
+2.3、列表分区表
+
+散列分区表创建：
+
+create table table_name
+
+(
+
+row1 char1 not null,
+
+row2 char2 not null,
+
+、、、、、、
+
+rown  number not null
+
+)
+
+partition by list (paration_row)
+
+(
+
+
+
+partition   partition_name1
+
+ 
+
+values
+
+ 
+
+(row_value1,row_value3,row_value8)
+
+ 
+
+tablespace
+
+
+
+tablespace_name1,
+
+
+
+partition   partition_name2
+
+ 
+
+values
+
+ 
+
+(row_value4,row_value6,row_value7)
+
+ 
+
+tablespace
+
+
+
+tablespace_name2,
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+partition
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+partition_name3
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+values
+
+
+
+(row_value9,row_value10,row_value11,row_value12,row_value15)
+
+tablespace tablespace_name3
+
+、、、、、、、、、、
+
+partition partition_nameX values (default) tablespace tablespace_nameX
+
+)
+
+ 
+
+表的插入、更新、删除和普通表相同，在 hash分区和 list分区中，比较困难的操作是：从一张 5
+
+千万以上的表中，要删除一千万条记录比较困，可以通过以下方法进行清理：
+
+ 
+
+ 
+
+第一种方法：
+
+a创建中间表和表备份，b进行数据插入，c进行锁表，d进行表名修改，e进行索引创建
+
+和存储过程编译，f进行表 truncate操作
+
+第二种方法：直接创建 job进行 delete删除：这样长期做，会降低表的执行效果
+
+a进行备份数据，b进行表记录删除，每次删除 1000——2000条记录，不然会发生锁表，c重
+
+建索引，d进行表分析。
+
+ 
+
+ 
+
+declare
+
+v_lognum number; –数据库中拥有的日志文件数
+
+v_needarc number; –需要归档的日志文件数
+
+begin
+
+select count(1) into v_lognum from v$log;
+
+loop
+
+loop
+
+select count(1) into v_needarc from v$archive;
+
+if v_needarc < v_lognum – 1 then
+
+exit;
+
+end if;
+
+end loop;
+
+
+
+delete from
+
+ 
+
+对象.table_name where条件 1 and条件 2 and rownum<1000;
+
+
+
+if sql%rowcount = 0 then
+
+exit;
+
+end if;
+
+commit;
+
+end loop;
+
+end;
+
+––––––————— — – - – - – - – - – - – - – - – - – - – - – -
+
+create or replace procedure procedure_name(exp_date1 varchar2 ,exp_date2 varchar2)
+
+as
+
+del_sql varchar2(1024);
+
+v_c integer;
+
+ 
+
+ 
+
+begin
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+del_sql:=’delete from对象.表名 a where exists (select 1 from对象.表名 b where
+
+条件 1 and
+
+条件 2 and、、、、
+
+条件 n）and rownum<1000′;
+
+ 
+
+ 
+
+for i in 1..10000 loop
+
+ 
+
+ 
+
+execute immediate del_sql using exp_date1,exp_date2;
+
+if sql%rowcount = 0 then
+
+exit;
+
+end if;
+
+commit;
+
+ 
+
+ 
+
+end loop;
+
+end procedure_name;
+
+ 
+
+ 
+
+ 
+
+3、分区操作
+
+ 
+
+ 
+
+添加分区
+
+alter table table_partition_name add partition partition_name values less than
+
+(to_date(‘row_values’,'yyyy-mm-dd’));
+
+注意：以上添加的分区界限应该高于最后一个分区界限。
+
+ 
+
+alter table table_partition_name
+
+ 
+
+modify partition partition_name
+
+ 
+
+add
+
+ 
+
+subpartition
+
+
+
+subpartition_name
+
+values(‘row_values’);
+
+ 
+
+删除分区
+
+以下代码删除表分区：
+
+alter table table_partition_name drop partition partition_name storage;
+
+注意：如果删除的分区是表中唯一的分区，那么此分区将不能被删除，要想删除此分区，必须删除
+
+表
+
+ 
+
+ 
+
+截断分区
+
+截断某个分区是指删除某个分区中的数据，并不会删除分区，也不会删除其它分区中的数据。当表
+
+中即使只有一个分区时，也可以截断该分区。通过以下代码截断分区：
+
+alter table table_partition_name truncate partition partition_name;
+
+ 
+
+合并分区
+
+合并分区是将相邻的分区合并成一个分区，结果分区将采用较高分区的界限，值得注意的是，不能
+
+将分区合并到界限较低的分区。以下代码实现了 partition_name1与 partition_name分区的合并：
+
+alter table table_partition_name merge partitions partition_name1,partition_name2 into partition
+
+partition_name2;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+拆分分区
+
+拆分分区将一个分区拆分两个新分区，拆分后原来分区不再存在。注意不能对 HASH类型的分
+
+区进行拆分。
+
+alter table table_partition_name sblit partition partition_name1
+
+at(to_date(‘row_value’,'yyyy-mm-dd’))
+
+into (partition partition_name1,partition partition_name2);
+
+ 
+
+接合分区(coalesca)
+
+结合分区是将散列分区中的数据接合到其它分区中，当散列分区中的数据比较大时，可以增加
+
+散列分区，然后进行接合，值得注意的是，接合分区只能用于散列分区中。通过以下代码进行接合
+
+分区：
+
+alter table table_hash_partition_name coalesca partition;
+
+ 
+
+重命名表分区
+
+以下代码将 partition_name1更改为 partition_name2
+
+alter table table_partition_name rename partition partition_name1 to partition_name2;
+
+ 
+
+相关查询
+
+跨分区查询
+
+select sum( *) from
+
+(select count(*) cn from table_partition_name partition (partition_name1)
+
+union all
+
+select count(*) cn from table_partition_name partition (partition_name2));
+
+ 
+
+查询表上有多少分区
+
+select * from user_tab_partitions where table_name =’table_partition_name’
+
+查询索引信息
+
+select object_name,object_type,tablespace_name,sum(value)
+
+from v$segment_statistics
+
+where statistic_name in (‘physical reads’,'physical write’,'logical reads’)and object_type=’index’
+
+group by object_name,object_type,tablespace_name order by 4 desc
+
+ 
+
+–显示数据库所有分区表的信息：
+
+select * from dba_part_tables
+
+ 
+
+–显示当前用户可访问的所有分区表信息:
+
+select * from all_part_tables
+
+ 
+
+–显示当前用户所有分区表的信息：
+
+select * from USER_PART_TABLES
+
+ 
+
+–显示表分区信息显示数据库所有分区表的详细分区信息：
+
+select * from dba_tab_partitions
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+–显示当前用户可访问的所有分区表的详细分区信息：
+
+select * from all_tab_partitions
+
+ 
+
+–显示当前用户所有分区表的详细分区信息：
+
+select * from user_tab_partitions
+
+ 
+
+–显示子分区信息显示数据库所有组合分区表的子分区信息：
+
+select * from dba_tab_subpartitions
+
+ 
+
+–显示当前用户可访问的所有组合分区表的子分区信息：
+
+select * from all_tab_subpartitions
+
+ 
+
+–显示当前用户所有组合分区表的子分区信息：
+
+select * from user_tab_subpartitions
+
+ 
+
+–显示分区列显示数据库所有分区表的分区列信息：
+
+select * from dba_part_key_columns
+
+ 
+
+–显示当前用户可访问的所有分区表的分区列信息：
+
+select * from all_part_key_columns
+
+ 
+
+–显示当前用户所有分区表的分区列信息：
+
+select * from user_part_key_columns
+
+ 
+
+–显示子分区列显示数据库所有分区表的子分区列信息：
+
+select * from dba_subpart_key_columns
+
+ 
+
+–显示当前用户可访问的所有分区表的子分区列信息：
+
+select * from all_subpart_key_columns
+
+ 
+
+–显示当前用户所有分区表的子分区列信息：
+
+select * from user_subpart_key_columns
+
+ 
+
+–怎样查询出 oracle数据库中所有的的分区表
+
+select * from user_tables a where a.partitioned=’yes’
+
+ 
+
+–删除一个表的数据是
+
+truncate table table_name;
+
+ 
+
+–删除分区表一个分区的数据是
+
+alter table table_partition_name truncate partition partition_nameN drop storage;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4、表状态查询
+
+ 
+
+ 
+
+Select * From Dba_Tab_Partitions Where Table_Name=’%表名%’;
+
+Select owner,index_name,status,degree,table_name from dba_indexes where
+
+table_name=’table_name ’;
+
+select owner,bytes/1024/1024,segment_nam,segment_type,tablespace_name from dba_segments
+
+where
+
+segment_name=’table_name’ and segment_type=’TABLE’ ;
+
+ 
+
+ 
+
+ 
+
+5、DDL语句操作
+
+ 
+
+ 
+
+创建表
+
+基本语法：
+
+create [global temporary] table table_name(
+
+column_name type [constraint constraint_def default default_exp]
+
+[,column_name type [constraint constraint_def default default_exp] …])
+
+[on commit {delete | preserve} rows]
+
+tablespace tab_space;
+
+ 
+
+其中：
+
+1)global temporary说明改表的行都是临时的，这种表就称为临时表。
+
+行的有效期由 on commit字句指定。临时表对于所有的会话都是可见的，但是这些行则是特定于
+
+某个会话的。
+
+2)table_name指定了要分配给该表的名称。
+
+3)column_name指定了要分配给某个列的名称。
+
+4)type指定了对某个列的类型。
+
+5)constraint_def指定了对某个列的约束的定义。
+
+6)default_def指定了一个表达式，用来为某个列赋予默认值。
+
+7)on commit控制临时表中行的有效期。delete说明这些行在事务的末尾要被删除。
+
+preserve说明这些行在会话的末尾要被删除。若对临时表没有指定 on commit选项，那末默认值是
+
+delete。
+
+8)tab_space为该表指定表空间。若没有指定表空间，该表就被存储在该用户的默认表空间中。
+
+ 
+
+获得有关表的信息可以通过如下操作获取有关表的信息：
+
+对表执行 describe命令。
+
+desc order_status_temp
+
+–注意 desc是 SQL*PLUS命令，在 SQL中不能执行。
+
+查询 user_tables，它是数据字典的一部分。另：查询用户可访问的表的相关信息，可以查询
+
+all_tables。
+
+select table_name, tablespace_name, temporary
+
+from user_tables
+
+where table_name in (‘table_name’, ‘ORDER_STATUS_TEMP’);
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+获得表中列的信息
+
+从 user_tab_columns中可以获得有关表中各列的信息,另：通过访问 all_tab_columns,可以获得有关
+
+可以访问的表中所有列的信息。
+
+select column_name, data_type, data_length, data_precision, data_scale
+
+from user_tab_columns
+
+where table_name = ‘table_name’;
+
+ 
+
+修改表
+
+alter table语句可以用于对表进行修改。
+
+alter table语句可以执行以下任务：
+
+1)添加、修改、删除列；
+
+2)添加或删除约束；
+
+3)启用或禁用约束。
+
+ 
+
+添加列
+
+alter table table_name add modified_by integer;
+
+alter table table_name add rowname类型 [date default sysdate not null];
+
+ 
+
+修改列
+
+1)修改列的长度，条件是该列的类型的长度可以修改，比如 char或 varchar2；
+
+2)修改数字列的精度；
+
+3)修改列的数据类型；
+
+4)修改列的默认值。
+
+ 
+
+修改列的长度
+
+alter table table_name modify rowname类型(长度);
+
+只有在表中还没有任何行或所有列都为空值的情况下才可以减小列的长度。
+
+修改数字列的精度
+
+alter table table_name modify column类型;
+
+只有在表中还没有任何行或列为空值时才可以减小数字列的精度。
+
+ 
+
+ 
+
+修改列的数据类型
+
+alter table table_name modify column类型;
+
+ 
+
+若一个表中还没有任何行或列为空值，就可以将列修改为任何一种数据类型。否则，就只能将列的
+
+数据类型修改为一种兼容的数据类型。
+
+例如，可以将 varchar2类型修改为 char，条件是没有缩短列的长度；但是不能将 date修改为
+
+number。
+
+ 
+
+修改列的默认值
+
+alter table table_name modify column column_name;
+
+默认值只适用于新插入表中的行。
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+删除列
+
+alter table table_name drop column column_name;
+
+ 
+
+重命名表
+
+rename语句可以用于对表进行重命名。
+
+rename table_name1 table_name2;
+
+删除表数据，保留表结构
+
+truncate table table_name
+
+ 
+Oracle基本操作笔试面试题之视图操作
+ 
+视图是基于一张表或多张表或另外一个视图的逻辑表。视图不同于表，视图本身不包含任何数
+
+据。表是实际独立存在的实体，是用于存储数据的基本结构。而视图只是一种定义，对应一个查询
+
+语句。视图的数据都来自于某些表，这些表被称为基表。通过视图来查看表，就像是从不同的角度
+
+来观察一个(或多个)表。
+
+ 
+
+ 
+
+视图有如下一些优点：
+
+a可以提高数据访问的安全性，通过视图往往只可以访问数据库中表的特定部分，限制了用户访
+
+问表的全部行和列。
+
+b简化了对数据的查询，隐藏了查询的复杂性。视图的数据来自一个复杂的查询，用户对视图的
+
+检索却很简单。
+
+c一个视图可以检索多张表的数据，因此用户通过访问一个视图，可完成对多个表的访问。
+
+d视图是相同数据的不同表示，通过为不同的用户创建同一个表的不同视图，使用户可分别访
+
+问同一个表的不同部分。视图可以在表能够使用的任何地方使用，但在对视图的操作上同表相
+
+比有些限制，特别是插入和修改操作。对视图的操作将传递到基表，所以在表上定义的约束条件和
+
+触发器在视图上将同样起作用。
+
+ 
+
+ 
+
+ 
+
+1、视图创建
+
+ 
+
+ 
+
+create [or replace] [force|noforce] view view_name
+
+[(alias[,alias]…)]
+
+as subquery
+
+[with check option [constraint constraint]]
+
+[with read only]
+
+例如：
+
+创建视图 empv，该属兔仅包含 10部门雇员的细节信息。
+
+create view empv
+
+as select empno,ename,job
+
+from  emp
+
+where deptno=10;
+
+ 
+
+别名的使用
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+例 1：create or replace view salv
+
+as select empno employee_id,ename name,sal salary
+
+from emp where deptno=30;
+
+ 
+
+例 2：create or replace view salv
+
+(employee_id,name,salary)
+
+as select empno,ename,sal
+
+from emp
+
+where deptno=30;
+
+ 
+
+创建复杂视图
+
+例：创建一个基于两个表并且含有组函数的复杂视图
+
+create or replace view dept_sum_v(name,minsal,maxsal,avgsal)
+
+as select d.dname,min(e.sal),max(e.sal),avg(e.sal)
+
+from emp e,dept d where e.deptno=d.deptno group by d.dname;
+
+ 
+
+ 
+
+ 
+
+2、视图操作
+
+ 
+
+ 
+
+查看视图
+
+数据字典 USER_VIEWS
+
+select view_name,text from user_views;
+
+ 
+
+从视图检索数据
+
+select * from salv;
+
+ 
+
+视图上执行 DML操作
+
+a)如果视图包含以下内容，则不能实现对数据的修改:
+
+-GROUP函数、GROUP BY子句、DISTINCT关键字
+
+-使用表达式定义的列
+
+-ROWNUM伪列
+
+ 
+
+b)如果视图中包含以下内容则不能删除数据行
+
+-GROUP函数
+
+-GROUP BY子句
+
+-DISTINCT关键字
+
+-ROWNUM伪列
+
+ 
+
+WITH CHECK OPTION子句
+
+-如果要确保在视图上执行的插入、更新操作仅限于一定的范围，便可使用 WITH CHECK
+
+OPTION子句
+
+例：
+
+create or replace view empv
+
+as select * from emp where deptno=20
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+with check option constraint empv_ck;
+
+ 
+
+测试一：update empv set deptno=10 where empno=7369
+
+结果：
+
+ERROR位于第 1行:
+
+ORA-01402:视图 WITH CHECK OPTIDN违反 where子句
+
+ 
+
+测试二：update empv set sal=2000 where empno=7369
+
+结果：已更新 1行。
+
+ 
+
+拒绝 DML操作
+
+-在视图定义时使用 WITH READ ONLY选项可以确保不能对视图执行 DML操作
+
+例：
+
+create or replace view empv(employee_id,employ_name,job_title)
+
+as select empno,ename,job from emp where deptno=10
+
+with read only;
+
+ 
+
+ 
+
+ 
+
+3、视图删除
+
+ 
+
+ 
+
+删除视图并不会删除数据，因为视图是基于数据库中的基表
+
+DROP VIEW view_name;
+
+例：DROP VIEW empv;
+
+ 
+
+Oracle基本操作笔试面试题之索引、约束操作
+Oracle的“索引”对象，与表关联的可选对象，提高SQL查询语句的速度;
+
+索引直接指向包含所查询值的行的位置，减少磁盘I/O;
+
+与所索引的表是相互独立的物理结构;
+
+Oracle自动使用并维护索引，插入、删除、更新表后，自动更新索引;
+
+语法：CREATE INDEX index ON table (column[, column]…);
+
+B-tree结构(非 bitmap)
+
+ 
+
+ 
+
+1、单表索引
+
+ 
+
+ 
+
+索引创建：
+
+ 
+
+create [unique | bitmap] index index_name on table_name(col_name) pctfree 20
+
+
+
+storage(initial 100k next 100k pctincrease
+
+tablespace_name;
+
+ 
+
+0 maxextents 100) tablespace
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+索引重建：
+
+ 
+
+重建索引(可以同时使用存储子句和参数,不重建时也可直接使用)
+
+alter index index_name rebuild tablespace tablespace_name nologging parallel 4;
+
+alter index index_name noparallel;
+
+ 
+
+在线重建索引.可以减少加锁时间,从而开放使用 DML类型操作
+
+alter index index_name rebuild tablespace tablespace_name nologging online;
+
+手动拓展索引的空间
+
+alter index index_name allocate extent;
+
+收回未用到的空间
+
+alter index index_name deallocate unused;
+
+索引碎片整理
+
+alter index index_name coalesce;
+
+标识索引是否使用过
+
+alter index index_name monitoring usage;
+
+查询:
+
+select * from v$object_usage;
+
+取消监控
+
+alter index index_name nomonitoring usage
+
+索引压缩：
+
+alter index index_name rebuild nologging online tablespace tablespace_name compress;
+
+ 
+
+ 
+
+索引删除：
+
+ 
+
+drop index index_name
+
+ 
+
+ 
+
+索引查看：
+
+ 
+
+索引相关信息
+
+select owner,index_name,table_name,tablespace_name,index_type,degree,status
+
+from dba_indexes;
+
+ 
+
+索引列对照信息
+
+select index_name,table_name,column_name,index_owner,table_owner
+
+from dba_ind_columns;
+
+ 
+
+索引存储信息
+
+select index_name,pct_free,pct_increase,initial_extent,next_extent,min_extents,
+
+max_extents from dba_indexes;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2、分区表索引
+
+ 
+
+ 
+
+索引创建：
+
+局部索引
+
+create index index_name on table_name (column)
+
+local
+
+(
+
+partition partition_name1 tablespace index_tablespace_name1,
+
+partition partition_name2 tablespace index_tablespace_name2,
+
+partition partition_name3 tablespace index_tablespace_name3
+
+)
+
+全局索引
+
+create [unique] index index_name on table_name(column)
+
+global partition by range(column)
+
+(
+
+partition partition_name1 value less than(first range value) tablespace
+
+index_tablespace_name1,
+
+partition partition_name2 value less than(second range value) tablespace
+
+index_tablespace_name 2,
+
+、、、、、、、
+
+partition partition_nameN value less than(maxvalue) tablespace index_tablespace_nameN
+
+)
+
+ 
+
+ 
+
+create [unique] index index_name on table_name(column,[column2])
+
+global partition by hash(column,[column2])
+
+(
+
+partition partition_name1 tablespace index_tablespace_name1,
+
+partition partition_name2 tablespace index_tablespace_name 2,
+
+、、、、、、、、
+
+partition partition_nameN tablespace index_tablespace_nameN
+
+)
+
+ 
+
+索引重建：
+
+alter index index_name rebuild tablespace tablespace_name nologging online parallel 4;
+
+alter index index_name noparallel;
+
+ 
+
+索引删除：
+
+drop index index_name;
+
+ 
+
+索引查看：
+
+索引相关信息
+
+select owner,index_name,table_name,tablespace_name,index_type,degree,status from
+
+dba_indexes;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+索引列对照信息
+
+select index_name,table_name,column_name,index_owner,table_owner from
+
+dba_ind_columns;
+
+索引存储信息
+
+select index_name,pct_free,pct_increase,initial_extent,next_extent,min_extents,max_extents
+
+from dba_indexes;
+
+ 
+
+ 
+
+ 
+
+3、主键、约束和唯一索引
+
+ 
+
+ 
+
+ 
+
+唯一索引
+
+唯一索引不允许两行具有相同的索引值。如果现有数据中存在重复的键值，则大多数数据库都
+
+不允许将新创建的唯一索引与表一起保存。当新数据将使表中的键值重复时，数据库也拒绝接受此
+
+数据。例如，如果在 books_table表中的书名 (book_name)列上,创建了唯一索引，则所有书不能
+
+同名。
+
+ 
+
+ 
+
+主键索引
+
+主键索引是唯一索引的特殊类型,数据库表通常有一列或列组合，其值用来唯一标识表中的每一
+
+行。该列称为表的主键。在数据库关系图中为表定义一个主键将自动创建主键索引，主键索引是唯
+
+一索引的特殊类型。主键索引要求主键中的每个值是唯一的。当在查询中使用主键索引时，它还允
+
+许快速访问数据。
+
+ 
+
+ 
+
+主键和唯一索引的一些比较：
+
+(1)对于主健 unique/constraint oracle自动建立唯一索引
+
+(2)主键不一定只包含一个字段，所以如果你在主键的其中一个字段建唯一索引还是必要的
+
+(3)主健可作外健，唯一索引不可，
+
+(4)主健不可为空，唯一索引可，
+
+(5)主健也可是多个字段的组合.
+
+(6)主键不同的是
+
+a.有 not null属性 b.每个表只能有一个
+
+ 
+
+约束和唯一索引比较：
+
+主键索引和主键约束的创建与删除顺序
+
+创建主键索引 –>创建主键约束删除主键约束 –>删除主键索引
+
+ 
+
+A分区字段不是主键的情况下,只可以创建全局分区索引,不可以创建本地主键分区索引.只有分
+
+区字段为主键时才可以创建本地主键分区索引.
+
+B如果创建本地唯一分区索引,除指定索引字段外还要加上表分区字段.这种索引意义不大:因为
+
+这样
+
+成复合索引,索引改变,约束也改变了.
+
+C如果创建非唯一索引则不需要表分区字段.
+
+D创建全局分区索引后可以创建约束.
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+唯一索引创建：
+
+create unique index index_name on table_name (column)
+
+local
+
+(
+
+partition partition_name1 tablespace index_tablespace1,
+
+partition partition_name2 tablespace index_tablespace2,
+
+、、、、、、
+
+partition partition_nameN tablespace index_tablespaceN
+
+)
+
+单表创建唯一索引：create unique index index_name on table_name (column);
+
+ 
+
+唯一索引重建：
+
+alter index index_name rebuild tablespace tablespace_name nologging parallel 8 online
+
+alter index index_name noparallel;
+
+ 
+
+唯一索引删除：
+
+如果有约束：先关闭约束 alter table table_name1 disable constraint constraint_name cascade;
+
+再 drop索引：drop index index_name
+
+ 
+
+索引查看：
+
+DBA查看索引分区
+
+select * from dba_ind_partitions
+
+USER查看索引分区
+
+select * from user_ind_partitions
+
+DBA查看索引分区类型
+
+select * from dba_part_indexes
+
+USER查看索引分区类型
+
+select * from user_part_indexes
+
+ 
+
+约束创建：
+
+在数据库中使用约束(constraints)是为了在该数据库中实施所谓的“业务规则“其实就是防止非法
+
+信息进入数据库,满足管理员和应用开发人员所定义的规则集.
+
+ORACLE使用完整性约束(integrity constraints)防止不合法的数据写入数据库,管理员和开发人
+
+员可以定义完整性规则,增强商业规则,限制数据表中的数据.如果一个 DML语句执行的任何结果破
+
+坏了完整性约束,ORACLE就会回滚语句,返回错误信息.
+
+约束是通过使用 create table或 alter table语句生成的.(建立表时或者表建立后修改都可)如果相关
+
+的约束定义在单列上,可以在列这一级指定约束的定义;多列约束必须定义在数据表级,相关的列要
+
+在括号中指定,用逗号分隔.如果没有为约束提供一个名字,那么 ORACLE会分配一个系统生成的唯
+
+一名字,以 SYS_开头,你可以使用关键字 CONSTRAINTS后面跟随相关的约束名字来为约束指定名
+
+字.
+
+ 
+
+ORACLE支持五种类型的完整性约束
+
+NOT NULL (非空)–防止 NULL值进入指定的列,在单列基础上定义,默认情况下,ORACLE允许
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+在任何列中有 NULL值.
+
+CHECK (检查)–检查在约束中指定的条件是否得到了满足.
+
+UNIQUE (唯一)–保证在指定的列中没有重复值.在该表中每一个值或者每一组值都将是唯一的.
+
+PRIMARY KEY (主键)–用来唯一的标识出表的每一行,并且防止出现 NULL值,一个表只能有一
+
+个主键约束.
+
+POREIGN KEY (外部键)–通过使用公共列在表之间建立一种父子(parent-child)关系,在表上定
+
+义的外部键可以指向主键或者其他表的唯一键.
+
+约束定义存储在数据字典中,查询 user_constraints可以获得相关信息.
+
+ 
+
+定义约束
+
+create table [schema.]table
+
+(column datatype [default expr]
+
+[column_constraint],
+
+…
+
+[table_constraint][,...]);
+
+ 
+
+创建约束：
+
+create table employees
+
+(employee_id number(6),
+
+first_name varchar2(20),
+
+…
+
+job_id varchar2(10) not null,
+
+constraints emp_emp_id_pk primary key (employee_id));
+
+列级的约束定义
+
+column [CONSTRAINT constraint_name] constraint_type,
+
+表级约束的定义
+
+column,..
+
+[constraint constraint_name] constraint_type (column,…)
+
+ 
+
+NOT NULL约束
+
+只能定义在列级,不能定义在表级：
+
+create table table_name1
+
+(row_id number(6),
+
+row_time varchar2(25) not null,
+
+row_salary number(8,2),
+
+row_pct number(2,2),
+
+row_date date constraint constraint_name1 not null);
+
+ 
+
+UNIQUE约束
+
+用来保护一个表中的一个或者多个列没有任何两行在收到保护的列中具有重复的数据.ORACLE在
+
+唯一键列上自动生成一个唯一索引以实现唯一性：
+
+create table table_name1
+
+(row_id number(6),
+
+row_time varchar2(25) not null,
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+row_salary number(8,2),
+
+row_pct number(2,2),
+
+row_date date constraint constraint_name1 UNIQUE(row_id));
+
+ 
+
+PRIMARY KEY约束
+
+唯一键的所有特征都适用于主键约束,只是在主键列中不允许有 NULL值.一个表只能有一个主键：
+
+create table table_name1
+
+(row_id number(6),
+
+row_time varchar2(25) not null,
+
+row_salary number(8,2),
+
+row_pct number(2,2),
+
+row_date date constraint constraint_name1 PRIMARY KEY(row_id));
+
+ 
+
+foreign key约束
+
+用来保护一个表中的一个或者多个列,它会通过一个主键主键或者唯一键保证对于每个非 NULL
+
+值在数据库的其他地方都有一个数据可用.这个外部键就是在生成此约束的表(子表)中的一个或多
+
+个列,在父级表和子表中,相关列的数据类型必须匹配.外部键列和引用键(reference key)列可以位于
+
+相同的表中(自引用完整性约束).
+
+create table table_name1
+
+(row_id number(6),
+
+row_time varchar2(25) not null,
+
+row_salary number(8,2),
+
+row_pct number(2,2),
+
+row_date date not null,
+
+dep_id number(6),
+
+constraint constraint_name1 foreign key(row_id) references table_name2(dep_id),
+
+constraint constraint_name2 unique(dep_id));
+
+ 
+
+上例中是在表级定义外部键约束,如果在列级定义,不同的是:
+
+create table table_name1
+
+(…,
+
+dep_id number(4) constraint constraint_name1 references table_name2(dep_id),
+
+…);
+
+//没有关键字 FOREIGN KEY
+
+FOREIGN KEY约束还有两个关键字是
+
+ON DELETE CASCADE –当删除所引用的父表记录时,删除子表中相关的记录
+
+ON DELETE SET NULL–与上面不同的是删除时,转换子表中相关记录为 NULL值
+
+默认情况下,如果没有指定以上两个中任一,则父表中被引用的记录将不能被删除.
+
+ 
+
+CHECK约束
+
+[CONSTRAINT <constraint name>] CHECK (<condition> )
+
+这里 CHECK子句中的 CONDITION应该求值为一个布尔值结果,并且可以引用相同行中其他列的
+
+值;不
+
+能包含子查询,序列,环境函数(SYSDATE,UID,USER,USERENV)和伪列
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(ROWNUM,LEVEL,CURRVAL,NEXTVAL),一个列上可以定义多个 CHECK约束,如果所定义的条
+
+件为
+
+FALSE,则语句将回滚.
+
+CREATE TABLE table_name1
+
+(…,
+
+row_sal NUMBER(8,2) CONSTRAINT constraint_name1 CHECK (row_sal>0),
+
+…);
+
+ 
+
+添加约束
+
+alter table table_name1
+
+ADD CONSTRAINT constraint_name FOREIGN KEY(rowmagr_id) REFERENCES
+
+table_name2(name_id);
+
+ 
+
+删除约束
+
+alter table table_name1
+
+drop constraint constraint_name;
+
+alter table table_name1
+
+drop primary key cascade;
+
+对于 NOT NULL约束,用 ALTER TABLE MODIFY子句来删除
+
+alter table table_name1 modify row_name null;
+
+ 
+
+关闭约束
+
+alter table table_name1
+
+disable constraint constraint_name cascade; //如果没有被引用则不需 CASCADE关键字
+
+当你生成一个约束时,约束自动打开(除非你指定了 DISABLE子句,当用 DISABLE关闭 UNIQUE或
+
+者 PRIMARY KEY约束时,ORACLE会自动删除相关的唯一索引,再次打开时,ORACLE又会自动
+
+建立.
+
+ 
+
+打开约束
+
+alter table table_name enable constraint constraint_name;
+
+//注意,打开一个先前关闭的被引用的主键约束,并不能自动打开相关的外部键约束
+
+ 
+
+约束信息查看：
+
+可以从 USER_CONSTRAINTS表和 USER_CONS_COLUMNS视图中查询约束的信息
+
+select constraint_name,constraint_type,search_condition
+
+from user_constraints
+
+where table_name=’table_name1′;
+
+ 
+
+约束类型
+
+C–CHECK和 NOT NULL都算为 C TYPE
+
+P–PRIMARY KEY
+
+R–REFERENTIAL INTEGRITY就是外部键约束
+
+U–UNIQUE
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+select constraint_name,column_name
+
+from user_cons_columns
+
+where table_name=’table_name1′;
+
+ Oracle基本操作笔试面试题之存储过程/job/函数/触发器操作
+
+1、存储过程和函数
+
+ 
+
+ 
+
+存储过程和函数也是一种 pl/sql块，是存入数据库的 pl/sql块。但存储过程和函数不
+
+同于已经介绍过的 pl/sql程序，我们通常把 pl/sql程序称为无名块，而存储过程和函数
+
+是以命名的方式存储于数据库中的。和 pl/sql程序相比，存储过程有很多优点，具体归
+
+纳如下：
+
+a）存储过程和函数以命名的数据库对象形式存储于数据库当中。存储在数据库中的优
+
+点是很明显的，因为代码不保存在本地，用户可以在任何客户机上登录到数据库，并调
+
+用或修改代码。
+
+b）存储过程和函数可由数据库提供安全保证，要想使用存储过程和函数，需要有存储
+
+过程和函数的所有者的授权，只有被授权的用户或创建者本身才能执行存储过程或调用
+
+函数。
+
+c）存储过程和函数的信息是写入数据字典的，所以存储过程可以看作是一个公用模块，
+
+用户编写的 pl/sql程序或其他存储过程都可以调用它(但存储过程和函数不能调用 pl/sql
+
+程序)。一个重复使用的功能，可以设计成为存储过程，比如：显示一张工资统计表，
+
+可以设计成为存储过程；一个经常调用的计算，可以设计成为存储函数；根据雇员编号
+
+返回雇员的姓名，可以设计成存储函数。
+
+d）像其他高级语言的过程和函数一样，可以传递参数给存储过程或函数，参数的传递
+
+也有多种方式。存储过程可以有返回值，也可以没有返回值，存储过程的返回值必须通
+
+过参数带回；函数有一定的数据类型，像其他的标准函数一样，我们可以通过对函数名
+
+的调用返回函数值。
+
+存储过程和函数需要进行编译，以排除语法错误，只有编译通过才能调用。
+
+创建存储过程，需要有 create procedure或 create any procedure的系统权限。该权限可由
+
+系统管理员授予。创建一个存储过程的基本语句如下：
+
+ 
+
+create [or replace] procedure存储过程名[(参数[in|out|in out]数据类型…)]
+
+{as|is}
+
+[说明部分]
+
+begin
+
+可执行部分
+
+[exception
+
+错误处理部分]
+
+end [过程名];
+
+ 
+
+其中：可选关键字 or replace表示如果存储过程已经存在，则用新的存储过程覆
+
+盖，通常用于存储过程的重建。参数部分用于定义多个参数(如果没有参数，就可以省
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+略)。参数有三种形式：in、out和 in out。如果没有指明参数的形式，则默认为 in，关
+
+键字 as也可以写成 is，后跟过程的说明部分，可以在此定义过程的局部变量，编写存
+
+储过程可以使用任何文本编辑器或直接在 sql*plus环境下进行，编写好的存储过程必须
+
+要在 sql*plus环境下进行编译，生成编译代码，原代码和编译代码在编译过程中都会被
+
+存入数据库。编译成功的存储过程就可以在 oracle环境下进行调用了。一个存储过程
+
+在不需要时可以删除。删除存储过程的创建者或者拥有 drop any procedure系统权限的
+
+人。删除存储过程的语法如下：
+
+ 
+
+语法格式：drop procedure存储过程名；
+
+ 
+
+如果要重新编译一个存储过程，则只能是过程的创建者或者拥有 alter any procedure
+
+系统权限的人。语法如下：
+
+ 
+
+alter procedure存储过程名 compile；
+
+ 
+
+执行(或调用)存储过程的人是过程的创建者或是拥有 execute any procedure系统权
+
+限的人或是被拥有者授予 execute权限的人。执行的方法如下：
+
+方法 1：
+
+execute模式名.存储过程名[(参数...)];
+
+方法 2：
+
+begin
+
+模式名.存储过程名[(参数...)];
+
+end;
+
+ 
+
+【训练 1】创建一个显示雇员总人数的存储过程。
+
+步骤 1：登录 scott账户(或学生个人账户)。
+
+步骤 2：在 sql*plus输入区中，输入以下存储过程：
+
+create or replace procedure dyk_count
+
+as
+
+v_total1 number(10);
+
+v_total2 number(10);
+
+v_total3 number(10);
+
+begin
+
+select count(*) into v_total1 from dyk_table1;
+
+dbms_output.put_line(‘雇员总人数为：‘||v_total1);
+
+delete dyk_table1 where owner In (‘XDB’,‘CTSSYS’,‘OUTLN’,‘WMSYS’);
+
+select count(*) into v_total2 from dyk_table1;
+
+dbms_output.put_line(‘剩余总人数为：‘||v_total2);
+
+
+
+insert into dyk_table1 nologging
+
+ 
+
+select * from dba_objects;
+
+
+
+select count(*) into v_total3 from dyk_table1;
+
+dbms_output.put_line(‘增加后的总人数为：‘||v_total3);
+
+end;
+
+ 
+
+步骤 3：按“执行”按钮进行编译。
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+如果存在错误，就会显示:警告:创建的过程带有编译错误。
+
+如果存在错误，对脚本进行修改，直到没有错误产生。
+
+如果编译结果正确，将显示：（sql代码）
+
+过程已创建。
+
+步骤 4：调用存储过程，在输入区中输入以下语句并执行：
+
+sql代码
+
+set serverout on  /从 sql提示符下输出存储过程变量值
+
+execute dyk_count;
+
+显示结果为：
+
+雇员总人数为：337386
+
+剩余总人数为：336456
+
+增加后的总人数为：386254
+
+ 
+
+说明：在该训练中，v_total变量是存储过程定义的局部变量，用于接收查询到的雇员总人数。
+
+注意：在 sql*plus中输入存储过程，按“执行”按钮是进行编译，不是执行存储过程。如果在存储
+
+过程中引用了其他用户的对象，比如表，则必须有其他用户授予的对象访问权限。一个存储过程一
+
+旦编译成功，就可以由其他用户或程序来引用。但存储过程或函数的所有者必须授予其他用户执行
+
+该过程的权限。
+
+存储过程没有参数，在调用时，直接写过程名即可。
+
+【训练 2】在 pl/sql程序中调用存储过程。
+
+步骤 1：登录 scott账户。
+
+步骤 2：授权 student账户使用该存储过程，即在 sql*plus输入区中，输入以下的命令：
+
+sql代码
+
+grant execute on emp_count to student
+
+sql代码
+
+授权成功。
+
+步骤 3：登录 student账户，在 sql*plus输入区中输入以下程序：
+
+sql代码
+
+set serveroutput on
+
+begin
+
+scott.emp_count;
+
+end;
+
+ 
+
+步骤 4：执行以上程序，结果为：
+
+sql代码
+
+雇员总人数为：14
+
+pl/sql过程已成功完成。
+
+ 
+
+说明：在本例中，存储过程是由 scott账户创建的，studen账户获得 scott账户的授权后，才能调
+
+用该存储过程。
+
+注意：在程序中调用存储过程，使用了第二种语法。
+
+ 
+
+【训练 3】
+
+ 
+
+编写显示雇员信息的存储过程 emp_list，并引用 emp_count存储过程。
+
+ 
+
+步骤 1：在 sql*plus输入区中输入并编译以下存储过程：
+
+sql代码
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+create or replace procedure emp_list
+
+as
+
+cursor emp_cursor is
+
+select empno,ename from emp;
+
+begin
+
+for emp_record in emp_cursor loop
+
+dbms_output.put_line(emp_record.empno||emp_record.ename);
+
+end loop;
+
+emp_count;
+
+end;
+
+ 
+
+过程已创建。
+
+步骤 2：调用存储过程，在输入区中输入以下语句并执行：
+
+sql代码
+
+execute emp_list
+
+ 
+
+ 
+
+execute emp_list
+
+显示结果为：
+
+sql代码
+
+7369smith
+
+7499allen
+
+7521ward
+
+7566jones
+
+执行结果：
+
+雇员总人数为：14
+
+pl/sql过程已成功完成。
+
+说明：以上的 emp_list存储过程中定义并使用了游标，用来循环显示所有雇员的信息。然后调用已
+
+经成功编译的存储过程 emp_count，用来附加显示雇员总人数。通过 execute命令来执行 emp_list
+
+存储过程。
+
+ 
+
+ 
+
+【练习 1】编写显示部门信息的存储过程 dept_list，要求统计出部门个数。
+
+参数传递：参数的作用是向存储过程传递数据，或从存储过程获得返回结果。正确的使用参数可以
+
+大大增加存储过程的灵活性和通用性，参数的类型有三种，如下所示。
+
+sql代码
+
+in定义一个输入参数变量，用于传递参数给存储过程
+
+out定义一个输出参数变量，用于从存储过程获取数据
+
+in out定义一个输入、输出参数变量，兼有以上两者的功能
+
+ 
+
+in定义一个输入参数变量，用于传递参数给存储过程
+
+out定义一个输出参数变量，用于从存储过程获取数据
+
+in out定义一个输入、输出参数变量，兼有以上两者的功能
+
+参数的定义形式和作用如下：
+
+参数名 in数据类型 default值；
+
+定义一个输入参数变量，用于传递参数给存储过程。在调用存储过程时，主程序的实际参数可
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+以是常量、有值变量或表达式等。default关键字为可选项，用来设定参数的默认值。如果在调用
+
+存储过程时不指明参数，则参数变量取默认值。在存储过程中，输入变量接收主程序传递的值，但
+
+不能对其进行赋值。
+
+参数名 out数据类型；
+
+定义一个输出参数变量，用于从存储过程获取数据，即变量从存储过程中返回值给主程序。
+
+在调用存储过程时，主程序的实际参数只能是一个变量，而不能是常量或表达式。在存储过程中，
+
+参数变量只能被赋值而不能将其用于赋值，在存储过程中必须给输出变量至少赋值一次。
+
+参数名 in out数据类型 default值；
+
+定义一个输入、输出参数变量，兼有以上两者的功能。在调用存储过程时，主程序的实际参数只能
+
+是一个变量，而不能是常量或表达式。default关键字为可选项，用来设定参数的默认值。在存储
+
+过程中，变量接收主程序传递的值，同时可以参加赋值运算，也可以对其进行赋值。在存储过程中
+
+必须给变量至少赋值一次。
+
+如果省略 in、out或 in out，则默认模式是 in。
+
+【训练 1】编写给雇员增加工资的存储过程 change_salary，通过 in类型的参数传递要增加工资的
+
+雇员编号和增加的工资额。
+
+步骤 1：登录 scott账户。
+
+步骤 2：在 sql*plus输入区中输入以下存储过程并执行：
+
+sql代码
+
+create or replace procedure change_salary(p_empno in number default 7788,p_raise number default
+
+10)
+
+as
+
+v_ename varchar2(10);
+
+v_sal number(5);
+
+begin
+
+select ename,sal into v_ename,v_sal from emp where empno=p_empno;
+
+update emp set sal=sal+p_raise where empno=p_empno;
+
+dbms_output.put_line(‘雇员‘||v_ename||’的工资被改为‘||to_char(v_sal+p_raise));
+
+commit;
+
+exception
+
+when others then
+
+dbms_output.put_line(‘发生错误，修改失败！‘);
+
+rollback;
+
+end;
+
+ 
+
+过程已创建。
+
+步骤 3：调用存储过程，在输入区中输入以下语句并执行：
+
+sql代码
+
+execute change_salary(7788,80)
+
+显示结果为：
+
+sql代码
+
+雇员 scott的工资被改为 3080
+
+说明：从执行结果可以看到，雇员 scott的工资已由原来的 3000改为 3080。
+
+参数的值由调用者传递，传递的参数的个数、类型和顺序应该和定义的一致。如果顺序不一致，可
+
+以采用以下调用方法。如上例，执行语句可以改为：
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+execute change_salary(p_raise=>80,p_empno=>7788);
+
+可以看出传递参数的顺序发生了变化，并且明确指出了参数名和要传递的值，=>运算符左侧是参
+
+数名，右侧是参数表达式，这种赋值方法的意义较清楚。
+
+【练习 1】创建插入雇员的存储过程 insert_emp，并将雇员编号等作为参数。
+
+在设计存储过程的时候，也可以为参数设定默认值，这样调用者就可以不传递或少传递参数了。
+
+ 
+
+【训练 2】
+
+ 
+
+调用存储过程 change_salary，不传递参数，使用默认参数值。
+
+ 
+
+在 sql*plus输入区中输入以下命令并执行：
+
+sql代码
+
+execute change_salary
+
+显示结果为：
+
+sql代码
+
+雇员 scott的工资被改为 3090
+
+说明：在存储过程的调用中没有传递参数，而是采用了默认值 7788和 10，即默认雇员号为 7788，
+
+增加的工资为 10。
+
+ 
+
+【训练 3】
+
+ 
+
+使用 out类型的参数返回存储过程的结果。
+
+ 
+
+步骤 1：登录 scott账户。
+
+步骤 2：在 sql*plus输入区中输入并编译以下存储过程：
+
+sql代码
+
+create or replace procedure emp_count(p_total out number)
+
+as
+
+begin
+
+select count(*) into p_total from emp;
+
+end;
+
+ 
+
+执行结果为：
+
+sql代码
+
+过程已创建。
+
+ 
+
+ 
+
+步骤 3：输入以下程序并执行：
+
+sql代码
+
+declare
+
+v_empcount number;
+
+begin
+
+emp_count(v_empcount);
+
+dbms_output.put_line(‘雇员总人数为：‘||v_empcount);
+
+end;
+
+ 
+
+显示结果为：
+
+sql代码
+
+雇员总人数为：14
+
+pl/sql过程已成功完成。
+
+ 
+
+说明：在存储过程中定义了 out类型的参数 p_total，在主程序调用该存储过程时，传递了参数
+
+v_empcount。在存储过程中的 select…into…语句中对 p_total进行赋值，赋值结果由 v_empcount
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+变量带回给主程序并显示。
+
+以上程序要覆盖同名的 emp_count存储过程，如果不使用 or replace选项，就会出现以下错误：
+
+sql代码
+
+error位于第 1行:
+
+ora-00955:名称已由现有对象使用。
+
+【练习 2】创建存储过程，使用 out类型参数获得雇员经理名。
+
+ 
+
+【训练 4】
+
+ 
+
+使用 in out类型的参数，给电话号码增加区码。
+
+ 
+
+步骤 1：登录 scott账户。
+
+步骤 2：在 sql*plus输入区中输入并编译以下存储过程：
+
+sql代码
+
+create or replace procedure add_region(p_hpone_num in out varchar2)
+
+as
+
+begin
+
+p_hpone_num:=’0755-’||p_hpone_num;
+
+end;
+
+、
+
+执行结果为：
+
+过程已创建。
+
+步骤 3：输入以下程序并执行：
+
+sql代码
+
+set serveroutput on
+
+declare
+
+v_phone_num varchar2(15);
+
+begin
+
+v_phone_num:=’26731092′;
+
+add_region(v_phone_num);
+
+dbms_output.put_line(‘新的电话号码：‘||v_phone_num);
+
+end;
+
+ 
+
+显示结果为：
+
+sql代码
+
+新的电话号码：0755-26731092
+
+pl/sql过程已成功完成。
+
+说明：变量 v_hpone_num既用来向存储过程传递旧电话号码，也用来向主程序返回新号码。新的
+
+号码在原来基础上增加了区号 0755和-。
+
+创建和删除存储函数
+
+ 
+
+ 
+
+创建函数，需要有 create procedure或 create any procedure的系统权限。该权限可由系统管理员授
+
+予。创建存储函数的语法和创建存储过程的类似，即
+
+create [or replace] function函数名[(参数[in]数据类型…)]
+
+return数据类型
+
+{as|is}
+
+[说明部分]
+
+begin
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+可执行部分
+
+return (表达式)
+
+[exception
+
+错误处理部分]
+
+end [函数名];
+
+ 
+
+其中，参数是可选的，但只能是 in类型(in关键字可以省略)。
+
+在定义部分的 return数据类型，用来表示函数的数据类型，也就是返回值的类型，此部分不可省
+
+略。在可执行部分的 return(表达式)，用来生成函数的返回值，其表达式的类型应该和定义部分说
+
+明的函数返回值的数据类型一致。在函数的执行部分可以有多个 return语句，但只有一个 return
+
+语句会被执行，一旦执行了 return语句，则函数结束并返回调用环境。
+
+一个存储函数在不需要时可以删除，但删除的人应是函数的创建者或者是拥有 drop any procedure
+
+系统权限的人。其语法如下：
+
+drop function函数名；
+
+重新编译一个存储函数时，编译的人应是函数的创建者或者拥有 alter any procedure系统权限
+
+的人。重新编译一个存储函数的语法如下：
+
+alter procedure函数名 compile；
+
+函数的调用者应是函数的创建者或拥有 execute any procedure系统权限的人，或是被函数的拥
+
+有者授予了函数执行权限的账户。函数的引用和存储过程不同，函数要出现在程序体中，可以参加
+
+表达式的运算或单独出现在表达式中，其形式如下：
+
+变量名:=函数名(…)
+
+
+
+【训练 1】
+
+ 
+
+创建一个通过雇员编号返回雇员名称的函数 get_emp_name。
+
+ 
+
+步骤 1：登录 scott账户。
+
+步骤 2：在 sql*plus输入区中输入以下存储函数并编译：
+
+sql代码
+
+create or replace function get_emp_name(p_empno number default 7788)
+
+return varchar2
+
+as
+
+v_ename varchar2(10);
+
+begin
+
+elect ename into v_ename from emp where empno=p_empno;
+
+return(v_ename);
+
+exception
+
+when no_data_found then
+
+dbms_output.put_line(‘没有该编号雇员‘);
+
+return (null);
+
+when too_many_rows then
+
+dbms_output.put_line(‘有重复雇员编号！‘);
+
+return (null);
+
+when others then
+
+dbms_output.put_line(‘发生其他错误！‘);
+
+return (null);
+
+end;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+步骤 3：调用该存储函数，输入并执行以下程序：
+
+sql代码
+
+begin
+
+dbms_output.put_line(‘雇员 7369的名称是：‘|| get_emp_name(7369));
+
+dbms_output.put_line(‘雇员 7839的名称是：‘|| get_emp_name(7839));
+
+end;
+
+ 
+
+显示结果为：
+
+sql代码
+
+雇员 7369的名称是：smith
+
+雇员 7839的名称是：king
+
+pl/sql过程已成功完成。
+
+ 
+
+说明：函数的调用直接出现在程序的 dbms_output.put_line语句中，作为字符串表达式的一部分。
+
+如果输入了错误的雇员编号，就会在函数的错误处理部分输出错误信息。试修改雇员编号，重新运
+
+行调用部分。
+
+【练习 1】创建一个通过部门编号返回部门名称的存储函数 get_dept_name。
+
+【练习 2】将函数的执行权限授予 student账户，然后登录 student账户调用。
+
+存储过程和函数的查看可以通过对数据字典的访问来查询存储过程或函数的有关信息，如果要查询
+
+当前用户的存储过程或函数的源代码，可以通过对
+
+user_source数据字典视图的查询得到。user_source的结构如下：
+
+sql代码
+
+describe user_source
+
+ 
+
+结果为：
+
+sql代码
+
+ 
+
+名称
+
+ 
+
+是否为空?类型
+
+ 
+
+————————————————————- ————- ———————–
+
+name varchar2(30)
+
+type varchar2(12)
+
+line number
+
+text varchar2(4000)
+
+ 
+
+说明：里面按行存放着过程或函数的脚本，name是过程或函数名，type代表类型(procedure或
+
+function)，line是行号，text为脚本。
+
+ 
+
+ 
+
+【训练 1】
+
+ 
+
+ 
+
+查询过程 emp_count的脚本。
+
+ 
+
+在 sql*plus中输入并执行如下查询：
+
+sql代码
+
+select text from user_source where name=’emp_count’;
+
+结果为：
+
+sql代码
+
+text
+
+——————————————————————————–
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+procedure emp_count(p_total out number)
+
+as
+
+begin
+
+select count(*) into p_total from emp;
+
+end;
+
+
+
+【训练 2】
+
+ 
+
+查询过程 get_emp_name的参数。
+
+ 
+
+在 sql*plus中输入并执行如下查询：
+
+sql代码
+
+describe get_emp_name
+
+结果为：
+
+sql代码
+
+function get_emp_name returns varchar2
+
+
+
+参数名称
+
+ 
+
+类型
+
+ 
+
+输入/输出默认值？
+
+ 
+
+——– ——- ——————–
+
+p_empno  number(4) in default
+
+
+
+ 
+
+【训练 3】
+
+ 
+
+ 
+
+在发生编译错误时，显示错误。
+
+ 
+
+sql代码
+
+show errors
+
+以下是一段编译错误显示：
+
+sql代码
+
+line/col error
+
+———- ——————-  ————–
+
+4/2 pl/sql: sql statement ignored
+
+4/36     pls-00201:必须说明标识符 ‘empp’
+
+ 
+
+说明：查询一个存储过程或函数是否是有效状态(即编译成功)，可以使用数据字典 user_objects的
+
+status列。
+
+【训练 4】查询 emp_list存储过程是否可用：
+
+sql代码
+
+select status from user_objects where object_name=’emp_list’;
+
+ 
+
+结果为：
+
+sql代码
+
+status
+
+————
+
+valid
+
+说明：valid表示该存储过程有效(即通过编译)，invalid表示存储过程无效或需要重新编译。当 oracle
+
+调用一个无效的存储过程或函数时，首先试图对其进行编译，如果编译成功则将状态置成 valid并
+
+执行，否则给出错误信息。当一个存储过程编译成功，状态变为 valid，会不会在某些情况下变成
+
+invalid。结论是完全可能的。比如一个存储过程中包含对表的查询，如果表被修改或删除，存储过
+
+程就会变成无效 invalid。所以要注意存储过程和函数对其他对象的依赖关系。
+
+如果要检查存储过程或函数的依赖性，可以通过查询数据字典 user_denpendencies来确定，该表结
+
+构如下：
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+sql代码
+
+describe user_dependencies;
+
+结果：
+
+sql代码
+
+ 
+
+名称
+
+ 
+
+是否为空
+
+ 
+
+类型
+
+ 
+
+—– ———-    ————
+
+name   not null      varchar2(30)
+
+type                varchar2(12)
+
+referenced_owner      varchar2(30)
+
+referenced_name       varchar2(64)
+
+referenced_type       varchar2(12)
+
+referenced_link_name  varchar2(128)
+
+schemaid             number
+
+dependency_type       varchar2(4)
+
+ 
+
+说明： name为实体名， type为实体类型， referenced_owner为涉及到的实体拥有者账户，
+
+referenced_name为涉及到的实体名，referenced_type为涉及到的实体类型。
+
+ 
+
+【训练 5】
+
+ 
+
+查询 emp_list存储过程的依赖性。
+
+ 
+
+sql代码
+
+select referenced_name,referenced_type from user_dependencies where name=’emp_list’;
+
+执行结果：
+
+sql代码
+
+referenced_name                     referenced_type
+
+—————————— —————————
+
+standard                            package
+
+sys_stub_for_purity_analysis   package
+
+dbms_output                 package
+
+dbms_output                 synonym
+
+dbms_output       non-existent
+
+emp         table
+
+emp_count    procedure
+
+ 
+
+说明：可以看出存储过程 emp_list依赖一些系统包、emp表和 emp_count存储过程。如果删除
+
+了 emp表或 emp_count存储过程，emp_list将变成无效。还有一种情况需要我们注意：如果一个
+
+用户 a被授予执行属于用户 b的一个存储过程的权限，在用户 b的存储过程中，访问到用户 c的表，
+
+用户 b被授予访问用户 c的表的权限，但用户 a没有被授予访问用户 c表的权限，那么用户 a调用
+
+用户 b的存储过程是失败的还是成功的呢？答案是成功的。如果读者有兴趣，不妨进行一下实际测
+
+试。
+
+ 
+
+ 
+
+ 
+
+2、程序包
+
+ 
+
+ 
+
+包的概念和组成
+
+包是用来存储相关程序结构的对象，它存储于数据字典中。包由两个分离的部分组成：包头(package)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+和包体(package body)。包头是包的说明部分，是对外的操作接口，对应用是可见的；包体是包的
+
+代码和实现部分，对应用来说是不可见的黑盒。
+
+包中可以包含的程序结构如下所示。
+
+sql代码
+
+ 
+
+过程(procudure)
+
+函数(function)
+
+变量(variable)
+
+常量(constant)
+
+ 
+
+带参数的命名的程序模块
+
+带参数、具有返回值的命名的程序模块
+
+存储变化的量的存储单元
+
+存储不变的量的存储单元
+
+ 
+
+游标(cursor)用户定义的数据操作缓存区，在可执行部分使用
+
+ 
+
+类型(type)
+
+ 
+
+用户定义的新的结构类型
+
+ 
+
+异常(exception)
+
+ 
+
+在标准包中定义或由用户自定义，用于处理程序错误
+
+ 
+
+ 
+
+说明部分可以出现在包的三个不同的部分：出现在包头中的称为公有元素，出现在包体中的称
+
+为私有元素，出现在包体的过程(或函数)中的称为局部变量。它们的性质有所不同，如下所示。
+
+sql代码
+
+ 
+
+公有元素(public)
+
+过程有效
+
+ 
+
+在包头中说明，在包体中具体定义在包外可见并可以访问，对整个应用的全
+
+ 
+
+私有元素(private)
+
+ 
+
+在包体的说明部分说明
+
+ 
+
+只能被包内部的其他部分访问
+
+ 
+
+局部变量(local)在过程或函数的说明部分说明
+
+ 
+
+只能在定义变量的过程或函数中使用
+
+ 
+
+ 
+
+在包体中出现的过程或函数，如果需要对外公用，就必须在包头中说明，包头中的说明应该和包体
+
+中的说明一致。
+
+包有以下优点：
+
+*包可以方便地将存储过程和函数组织到一起，每个包又是相互独立的。在不同的包中，过程、函
+
+数都可以重名，这解决了在同一个用户环境中命名的冲突问题。
+
+*包增强了对存储过程和函数的安全管理，对整个包的访问权只需一次授予。
+
+*在同一个会话中，公用变量的值将被保留，直到会话结束。
+
+*区分了公有过程和私有过程，包体的私有过程增加了过程和函数的保密性。
+
+*包在被首次调用时，就作为一个整体被全部调入内存，减少了多次访问过程或函数的 i/o次数。
+
+创建包和包体
+
+包由包头和包体两部分组成，包的创建应该先创建包头部分，然后创建包体部分。创建、删除和编
+
+译包的权限同创建、删除和编译存储过程的权限相同。
+
+创建包头的简要语句如下：
+
+create [or replace] package包名
+
+{is|as}
+
+公有变量定义
+
+公有类型定义
+
+公有游标定义
+
+公有异常定义
+
+函数说明
+
+过程说明
+
+end;
+
+ 
+
+创建包体的简要语法如下：
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+create [or replace] package body包名
+
+{is|as}
+
+私有变量定义
+
+私有类型定义
+
+私有游标定义
+
+私有异常定义
+
+函数定义
+
+过程定义
+
+end;
+
+包的其他操作命令包括：
+
+删除包头：
+
+drop package包头名
+
+删除包体：
+
+drop package body包体名
+
+重新编译包头：
+
+alter package包名 compile package
+
+重新编译包体：
+
+alter package包名 compile package body
+
+在包头中说明的对象可以在包外调用，调用的方法和调用单独的过程或函数的方法基本相同，
+
+惟一的区别就是要在调用的过程或函数名前加上包的名字(中间用“.”分隔)。但要注意，不同的会话
+
+将单独对包的公用变量进行初始化，所以不同的会话对包的调用属于不同的应用。
+
+系统包 oracle预定义了很多标准的系统包，这些包可以在应用中直接使用，比如在训练中我们使
+
+用的 dbms_output包，就是系统包。put_line是该包的一个函数。常用系统包下所示。
+
+sql代码
+
+dbms_output在 sql*plus环境下输出信息
+
+ 
+
+dbms_ddl
+
+dbms_session
+
+ 
+
+编译过程函数和包
+
+改变用户的会话，初始化包等
+
+ 
+
+dbms_transaction
+
+ 
+
+控制数据库事务
+
+ 
+
+dbms_mail
+
+dbms_lock
+
+dbms_alert
+
+dbms_pipe
+
+dbms_job
+
+dbms_lob
+
+dbms_sql
+
+ 
+
+连接 oracle*mail
+
+进行复杂的锁机制管理
+
+识别数据库事件告警
+
+通过管道在会话间传递信息
+
+管理 oracle的作业
+
+操纵大对象
+
+执行动态 sql语句
+
+ 
+
+ 
+
+dbms_output在 sql*plus环境下输出信息
+
+ 
+
+dbms_ddl
+
+ 
+
+编译过程函数和包
+
+ 
+
+dbms_session改变用户的会话，初始化包等
+
+dbms_transaction控制数据库事务
+
+ 
+
+dbms_mail
+
+dbms_lock
+
+dbms_alert
+
+dbms_pipe
+
+ 
+
+连接 oracle*mail
+
+进行复杂的锁机制管理
+
+识别数据库事件告警
+
+通过管道在会话间传递信息
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+dbms_job
+
+dbms_lob
+
+dbms_sql
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+管理 oracle的作业
+
+操纵大对象
+
+执行动态 sql语句
+
+ 
+
+包的应用
+
+在 sql*plus环境下，包和包体可以分别编译，也可以一起编译。如果分别编译，则要先编译包头，
+
+后编译包体。如果在一起编译，则包头写在前，包体在后，中间用“/”分隔。
+
+可以将已经存在的存储过程或函数添加到包中，方法是去掉过程或函数创建语句的 create or
+
+replace部分，将存储过程或函数复制到包体中，然后重新编译即可。
+
+如果需要将私有过程或函数变成共有过程或函数的话，将过程或函数说明部分复制到包头说明
+
+部分，然后重新编译就可以了。
+
+【训练 1】创建管理雇员信息的包 employe，它具有从 emp表获得雇员信息，修改雇员名称，修
+
+改雇员工资和写回 emp表的功能。
+
+步骤 1：登录 scott账户，输入以下代码并编译：
+
+sql代码
+
+create or replace package employe –包头部分
+
+is
+
+procedure show_detail;
+
+procedure get_employe(p_empno number);
+
+procedure save_employe;
+
+procedure change_name(p_newname varchar2);
+
+procedure change_sal(p_newsal number);
+
+end employe;
+
+/
+
+create or replace package body employe –包体部分
+
+is
+
+employe emp%rowtype;
+
+————–显示雇员信息 —————
+
+procedure show_detail
+
+as
+
+begin
+
+dbms_output.put_line(‘—–雇员信息 —–’);
+
+dbms_output.put_line(‘雇员编号：‘||employe.empno);
+
+dbms_output.put_line(‘雇员名称：‘||employe.ename);
+
+dbms_output.put_line(‘雇员职务：‘||employe.job);
+
+dbms_output.put_line(‘雇员工资：‘||employe.sal);
+
+dbms_output.put_line(‘部门编号：‘||employe.deptno);
+
+end show_detail;
+
+—————–从 emp表取得一个雇员 ——————–
+
+procedure get_employe(p_empno number)
+
+as
+
+begin
+
+select * into employe from emp where   empno=p_empno;
+
+dbms_output.put_line(‘获取雇员‘||employe.ename||’信息成功‘);
+
+exception
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+when others then
+
+dbms_output.put_line(‘获取雇员信息发生错误！‘);
+
+end get_employe;
+
+———————-保存雇员到 emp表 ————————–
+
+procedure save_employe
+
+as
+
+begin
+
+update emp set ename=employe.ename, sal=employe.sal where empno=
+
+employe.empno;
+
+dbms_output.put_line(‘雇员信息保存完成！‘);
+
+end save_employe;
+
+—————————-修改雇员名称 ——————————
+
+procedure change_name(p_newname varchar2)
+
+as
+
+begin
+
+employe.ename:=p_newname;
+
+dbms_output.put_line(‘修改名称完成！‘);
+
+end change_name;
+
+—————————-修改雇员工资 ————————–
+
+procedure change_sal(p_newsal number)
+
+as
+
+begin
+
+employe.sal:=p_newsal;
+
+dbms_output.put_line(‘修改工资完成！‘);
+
+end change_sal;
+
+end employe;
+
+ 
+
+create or replace package employe –包头部分
+
+is
+
+procedure show_detail;
+
+procedure get_employe(p_empno number);
+
+procedure save_employe;
+
+procedure change_name(p_newname varchar2);
+
+procedure change_sal(p_newsal number);
+
+end employe;
+
+/
+
+create or replace package body employe –包体部分
+
+is
+
+employe emp%rowtype;
+
+————–显示雇员信息 —————
+
+procedure show_detail
+
+as
+
+begin
+
+dbms_output.put_line(‘—–雇员信息 —–’);
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+dbms_output.put_line(‘雇员编号：‘||employe.empno);
+
+dbms_output.put_line(‘雇员名称：‘||employe.ename);
+
+dbms_output.put_line(‘雇员职务：‘||employe.job);
+
+dbms_output.put_line(‘雇员工资：‘||employe.sal);
+
+dbms_output.put_line(‘部门编号：‘||employe.deptno);
+
+end show_detail;
+
+—————–从 emp表取得一个雇员 ——————–
+
+procedure get_employe(p_empno number)
+
+as
+
+begin
+
+select * into employe from emp where   empno=p_empno;
+
+dbms_output.put_line(‘获取雇员‘||employe.ename||’信息成功‘);
+
+exception
+
+when others then
+
+dbms_output.put_line(‘获取雇员信息发生错误！‘);
+
+end get_employe;
+
+———————-保存雇员到 emp表 ————————–
+
+procedure save_employe
+
+as
+
+begin
+
+update emp set ename=employe.ename, sal=employe.sal where empno=
+
+employe.empno;
+
+dbms_output.put_line(‘雇员信息保存完成！‘);
+
+end save_employe;
+
+—————————-修改雇员名称 ——————————
+
+procedure change_name(p_newname varchar2)
+
+as
+
+begin
+
+employe.ename:=p_newname;
+
+dbms_output.put_line(‘修改名称完成！‘);
+
+end change_name;
+
+—————————-修改雇员工资 ————————–
+
+procedure change_sal(p_newsal number)
+
+as
+
+begin
+
+employe.sal:=p_newsal;
+
+dbms_output.put_line(‘修改工资完成！‘);
+
+end change_sal;
+
+end employe;
+
+步骤 2：获取雇员 7788的信息:
+
+sql代码
+
+set serveroutput on
+
+execute employe.get_employe(7788);
+
+结果为：
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+sql代码
+
+获取雇员 scott信息成功
+
+pl/sql过程已成功完成。
+
+ 
+
+步骤 3：显示雇员信息：
+
+sql代码
+
+execute employe.show_detail;
+
+结果为：
+
+sql代码
+
+——————雇员信息 ——————
+
+雇员编号：7788
+
+雇员名称：scott
+
+雇员职务：analyst
+
+雇员工资：3000
+
+部门编号：20
+
+pl/sql过程已成功完成。
+
+步骤 4：修改雇员工资：
+
+sql代码
+
+execute employe.change_sal(3800);
+
+ 
+
+结果为：
+
+sql代码
+
+修改工资完成！
+
+pl/sql过程已成功完成。
+
+步骤 5：将修改的雇员信息存入 emp表
+
+sql代码
+
+execute employe.save_employe;
+
+ 
+
+结果为：
+
+sql代码
+
+雇员信息保存完成！
+
+pl/sql过程已成功完成。
+
+ 
+
+说明：该包完成将 emp表中的某个雇员的信息取入内存记录变量，在记录变量中进行修改编辑，
+
+在确认显示信息正确后写回 emp表的功能。记录变量 employe用来存储取得的雇员信息，定义为
+
+私有变量，只能被包的内部模块访问。
+
+【练习 1】为包增加修改雇员职务和部门编号的功能。
+
+阶段训练
+
+下面的训练通过定义和创建完整的包 emp_pk并综合运用本章的知识，完成对雇员表的插入、删除
+
+等功能，包中的主要元素解释如下所示。
+
+sql代码
+
+ 
+
+程序结构
+
+ 
+
+类型说明
+
+ 
+
+v_emp_count公有变量
+
+ 
+
+跟踪雇员的总人数变化，插入、删除雇员的同时修改该变量的值
+
+ 
+
+init
+
+ 
+
+公有过程
+
+ 
+
+对包进行初始化，初始化雇员人数和工资修改的上、下限
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+list_emp
+
+insert_emp
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+公有过程
+
+公有过程
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+显示雇员列表
+
+通过编号插入新雇员
+
+ 
+
+delete_emp公有过程
+
+ 
+
+通过编号删除雇员
+
+ 
+
+change_emp_sal
+
+ 
+
+公有过程
+
+ 
+
+通过编号修改雇员工资
+
+ 
+
+v_message
+
+c_max_sal
+
+c_min_sal
+
+ 
+
+私有变量
+
+私有变量
+
+私有变量
+
+ 
+
+存放准备输出的信息
+
+对工资修改的上限
+
+对工资修改的下限
+
+ 
+
+show_message
+
+ 
+
+私有过程
+
+ 
+
+显示私有变量 v_message中的信息
+
+ 
+
+exist_emp
+
+ 
+
+私有函数
+
+ 
+
+判断某个编号的雇员是否存在，该函数被 insert_emp、delete_emp和
+
+ 
+
+change_emp_sal等过程调用
+
+ 
+
+ 
+
+【训练 1】
+
+ 
+
+ 
+
+完整的雇员包 emp_pk的创建和应用。
+
+ 
+
+步骤 1：在 sql*plus中登录 scott账户，输入以下包头和包体部分，按“执行”按钮编译：
+
+ 
+
+ 
+
+create or replace package emp_pk
+
+–包头部分
+
+is
+
+v_emp_count number(5);
+
+–雇员人数
+
+procedure init(p_max number,p_min number); –初始化
+
+procedure list_emp;
+
+–显示雇员列表
+
+procedure insert_emp(p_empno number,p_enamevarchar2,p_job varchar2,
+
+p_sal number);
+
+–插入雇员
+
+procedure delete_emp(p_empno number);      –删除雇员
+
+procedure change_emp_sal(p_empno number,p_sal number);
+
+–修改雇员工资
+
+end emp_pk;
+
+/create or replace package body emp_pk
+
+–包体部分
+
+is
+
+v_message varchar2(50); –显示信息
+
+v_max_sal number(7); –工资上限
+
+v_min_sal number(7); –工资下限
+
+function exist_emp(p_empno number) return boolean; –判断雇员是否存在函数
+
+procedure show_message; –显示信息过程
+
+——————————-初始化过程 —————————-
+
+procedure init(p_max number,p_min number)
+
+is
+
+begin
+
+select count(*) into v_emp_count from emp;
+
+v_max_sal:=p_max;
+
+v_min_sal:=p_min;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+v_message:=’初始化过程已经完成！‘;
+
+show_message;
+
+end init;
+
+—————————-显示雇员列表过程 ———————
+
+procedure list_emp
+
+is
+
+begin
+
+
+
+dbms_output.put_line(‘姓名
+
+ 
+
+职务
+
+ 
+
+工资‘);
+
+
+
+for emp_rec in (select * from emp)
+
+loop
+
+dbms_output.put_line(rpad(emp_rec.ename,10,”)||rpad(emp_rec.job,10,’
+
+‘)||to_char(emp_rec.sal));
+
+end loop;
+
+dbms_output.put_line(‘雇员总人数‘||v_emp_count);
+
+end list_emp;
+
+—————————–插入雇员过程 —————————–
+
+
+
+procedureinsert_emp(p_empno
+
+ 
+
+number,p_enamevarchar2,p_job varchar2,p_sal number)
+
+
+
+is
+
+begin
+
+if not exist_emp(p_empno) then
+
+
+
+insert into emp(empno,ename,job,sal)
+
+commit;
+
+v_emp_count:=v_emp_count+1;
+
+v_message:=’雇员‘||p_empno||’已插入!’;
+
+else
+
+v_message:=’雇员‘||p_empno||’已存在,不能插入!’;
+
+end if;
+
+show_message;
+
+exception
+
+when others then
+
+v_message:=’雇员‘||p_empno||’插入失败!’;
+
+show_message;
+
+end insert_emp;
+
+—————————删除雇员过程 ——————–
+
+procedure delete_emp(p_empno number)
+
+is
+
+begin
+
+if exist_emp(p_empno) then
+
+delete from emp where empno=p_empno;
+
+commit;
+
+v_emp_count:=v_emp_count-1;
+
+v_message:=’雇员‘||p_empno||’已删除!’;
+
+else
+
+v_message:=’雇员‘||p_empno||’不存在，不能删除!’;
+
+ 
+
+values(p_empno,p_ename,p_job,p_sal);
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+end if;
+
+show_message;
+
+exception
+
+when others then
+
+v_message:=’雇员‘||p_empno||’删除失败!’;
+
+show_message;
+
+end delete_emp;
+
+—————————————修改雇员工资过程 ————————————
+
+procedure change_emp_sal(p_empno number,p_sal number)
+
+is
+
+begin
+
+if (p_sal>v_max_sal or p_sal<v_min_sal) then
+
+v_message:=’工资超出修改范围!’;
+
+elsif not exist_emp(p_empno) then
+
+v_message:=’雇员‘||p_empno||’不存在，不能修改工资!’;
+
+else
+
+update emp set sal=p_sal where empno=p_empno;
+
+commit;
+
+v_message:=’雇员‘||p_empno||’工资已经修改!’;
+
+end if;
+
+show_message;
+
+exception
+
+when others then
+
+v_message:=’雇员‘||p_empno||’工资修改失败!’;
+
+show_message;
+
+end change_emp_sal;
+
+—————————-显示信息过程 —————————-
+
+procedure show_message
+
+is
+
+begin
+
+dbms_output.put_line(‘提示信息：‘||v_message);
+
+end show_message;
+
+————————判断雇员是否存在函数 ——————-
+
+function exist_emp(p_empno number)
+
+return boolean
+
+is
+
+v_num number; –局部变量
+
+begin
+
+select count(*) into v_num from emp where empno=p_empno;
+
+if v_num=1 then
+
+return true;
+
+else
+
+return false;
+
+end if;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+end exist_emp;
+
+—————————–
+
+end emp_pk;
+
+ 
+
+结果为：
+
+sql代码
+
+程序包已创建。
+
+程序包主体已创建。
+
+步骤 2：初始化包：
+
+sql代码
+
+set serveroutput on
+
+execute emp_pk.init(6000,600);
+
+ 
+
+显示为：
+
+sql代码
+
+提示信息：初始化过程已经完成！
+
+ 
+
+ 
+
+步骤 3：显示雇员列表：
+
+sql代码
+
+execute emp_pk.list_emp;
+
+ 
+
+显示为：
+
+sql代码
+
+ 
+
+姓名
+
+ 
+
+职务
+
+ 
+
+工资
+
+ 
+
+smith      clerk      1560
+
+allen      salesman   1936
+
+ward       salesman   1830
+
+jones      manager    2975
+
+…
+
+雇员总人数：14
+
+ 
+
+步骤 4：插入一个新记录：
+
+sql代码
+
+execute emp_pk.insert_emp(8001,’小王‘,’clerk’,1000);
+
+ 
+
+显示结果为：
+
+sql代码
+
+提示信息：雇员 8001已插入!
+
+pl/sql过程已成功完成。
+
+ 
+
+步骤 5：通过全局变量 v_emp_count查看雇员人数：
+
+sql代码
+
+begin
+
+dbms_output.put_line(emp_pk.v_emp_count);
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+end;
+
+ 
+
+显示结果为：
+
+sql代码
+
+15
+
+pl/sql过程已成功完成。
+
+ 
+
+步骤 6：删除新插入记录：
+
+sql代码
+
+execute emp_pk.delete_emp(8001);
+
+ 
+
+显示结果为：
+
+sql代码
+
+提示信息：雇员 8001已删除!
+
+pl/sql过程已成功完成。
+
+ 
+
+再次删除该雇员：
+
+sql代码
+
+execute emp_pk.delete_emp(8001);
+
+ 
+
+结果为：
+
+sql代码
+
+提示信息：雇员 8001不存在，不能删除!
+
+ 
+
+步骤 7：修改雇员工资：
+
+sql代码
+
+execute emp_pk.change_emp_sal(7788,8000);
+
+ 
+
+显示结果为：
+
+sql代码
+
+提示信息：工资超出修改范围!
+
+pl/sql过程已成功完成。
+
+步骤 8：授权其他用户调用包：
+
+如果是另外一个用户要使用该包，必须由包的所有者授权，下面授予 studen账户对该包的使用
+
+权：
+
+sql代码
+
+grant execute on emp_pk to student;
+
+每一个新的会话要为包中的公用变量开辟新的存储空间,所以需要重新执行初始化过程。两个会
+
+话的进程互不影响。
+
+步骤 9：其他用户调用包。
+
+启动另外一个 sql*plus，登录 student账户，执行以下过程：
+
+sql代码
+
+set serveroutput on
+
+execute scott.emp_pk. emp_pk.init(5000,700);
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+结果为：
+
+sql代码
+
+提示信息：初始化过程已经完成！
+
+pl/sql过程已成功完成。
+
+说明：在初始化中设置雇员的总人数和修改工资的上、下限，初始化后 v_emp_count为 14人，
+
+插入雇员后 v_emp_count为 15人。v_emp_count为公有变量，所以可以在外部程序中使用
+
+dbms_output.put_line输出，引用时用 emp_pk.v_emp_count的形式，说明所属的包。
+
+而私有变量 v_max_sal和 v_min_sal不能被外部访问，只能通过内部过程来修改。
+
+同样，exist_emp和 show_message也是私有过程，也只能在过程体内被其他模块引用。
+
+注意：在最后一个步骤中，因为 student模式调用了 scott模式的包，所以包名前要增加
+
+模式名 scott。不同的会话对包的调用属于不同的应用，所以需要重新进行初始化。
+
+ 
+
+ 
+
+ 
+
+3、操作练习
+
+ 
+
+ 
+
+1)如果存储过程的参数类型为 out，那么调用时传递的参数应该为：
+
+ 
+
+a．常量 b．表达式
+
+ 
+
+c．变量 d．都可以
+
+ 
+
+2)下列有关存储过程的特点说法错误的是：
+
+a．存储过程不能将值传回调用的主程序
+
+b．存储过程是一个命名的模块
+
+c．编译的存储过程存放在数据库中
+
+d．一个存储过程可以调用另一个存储过程
+
+3)下列有关函数的特点说法错误的是：
+
+a．函数必须定义返回类型
+
+b．函数参数的类型只能是 in
+
+c．在函数体内可以多次使用 return语句
+
+d．函数的调用应使用 execute命令
+
+4)包中不能包含的元素为:
+
+a．存储过程 b．存储函数
+
+ 
+
+c．游标
+
+ 
+
+d．表
+
+ 
+
+5)下列有关包的使用说法错误的是：
+
+a．在不同的包内模块可以重名
+
+b．包的私有过程不能被外部程序调用
+
+c．包体中的过程和函数必须在包头部分说明
+
+d．必须先创建包头，然后创建包体
+
+ 
+
+ 
+
+ 
+
+4、触发器
+
+ 
+
+ 
+
+触发器:是特定事件出现的时候，自动执行的代码块。类似于存储过程，但是用户不能直接调用
+
+他们，其功能如下：
+
+1）允许/限制对表的修改
+
+2）自动生成派生列，比如自增字段
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3）强制数据一致性
+
+4）提供审计和日志记录
+
+5）防止无效的事务处理
+
+6）启用复杂的业务逻辑
+
+ 
+
+开始
+
+create trigger biufer_employees_department_id
+
+before insert or update
+
+of department_id
+
+on employees
+
+referencing old as old_value
+
+new as new_value
+
+for each row
+
+when (new_value.department_id<>80 )
+
+begin
+
+:new_value.commission_pct :=0;
+
+end;
+
+/
+
+触发器的组成部分：的
+
+ 
+
+ 
+
+ 
+
+1）触发器名称
+
+2）触发语句
+
+3）触发器限制
+
+4）触发操作
+
+ 
+
+触发器名称：
+
+create trigger biufer_employees_department_id
+
+ 
+
+命名习惯：
+
+biufer（before insert update for each row）
+
+employees表名
+
+department_id列名
+
+ 
+
+触发语句
+
+比如：
+
+表或视图上的 dml语句
+
+ddl语句
+
+数据库关闭或启动,startup shutdown等等
+
+ 
+
+ 
+
+before insert or update
+
+of department_id
+
+on employees
+
+referencing old as old_value
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+new as new_value
+
+for each row
+
+说明：
+
+ 
+
+ 
+
+1）无论是否规定了 department_id，对 employees表进行 insert的时候
+
+2）对 employees表的 department_id列进行 update的时候
+
+3）触发器限制
+
+ 
+
+ 
+
+when (new_value.department_id<>80 )
+
+限制不是必须的。此例表示如果列 department_id不等于 80的时候，触发器就会执行。
+
+其中的 new_value是代表更新之后的值。
+
+ 
+
+触发操作：
+
+是触发器的主体
+
+begin
+
+:new_value.commission_pct :=0;
+
+end;
+
+主体很简单，就是将更新后的 commission_pct列置为 0
+
+ 
+
+触发：
+
+insert into employees(employee_id,
+
+last_name,first_name,hire_date,job_id,email,department_id,salary,commission_pct )
+
+values( 12345,’chen’,’donny’, sysdate, 12, ‘donny@hotmail.com’,60,10000,.25);
+
+select commission_pct from employees where employee_id=12345;
+
+触发器不会通知用户，便改变了用户的输入值。
+
+ 
+
+ 
+
+触发器类型：
+
+1）语句触发器
+
+2）行触发器
+
+3） instead of触发器
+
+4）系统条件触发器
+
+5）用户事件触发器
+
+ 
+
+ 
+
+ 
+
+5、Job创建和操作
+
+ 
+
+ 
+
+1)设置初始化参数 job_queue_processes
+
+alter system set job_queue_processes=n;（n>0）job_queue_processes最大值为 1000
+
+查看 job queue后台进程
+
+select name,description from v$bgprocess;
+
+ 
+
+2)dbms_job package用法介绍
+
+包含以下子过程：
+
+broken()过程;change()过程;interval()过程;isubmit()过程;next_date()过程;
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+remove()过程;run()过程;submit()过程;user_export()过程;what()过程;
+
+ 
+
+(1)broken()过程更新一个已提交的工作的状态，典型地是用来把一个已破工作标记为未破工作。
+
+这个过程有三个参数：job、broken与 next_date。
+
+procedure broken (job in binary_integer,broken in boolean,next_date in date :=sysdate)
+
+job参数是工作号，它在问题中唯一标识工作。
+
+broken参数指示此工作是否将标记为破——true说明此工作将标记为破，而 flase说明此工作
+
+将标记为未破。
+
+next_date参数指示在什么时候此工作将再次运行。此参数缺省值为当前日期和时间。
+
+job如果由于某种原因未能成功之行，oracle将重试 16次后，还未能成功执行，将被标记为
+
+broken重新启动状态为 broken的 job，有如下两种方式;
+
+a、利用 dbms_job.run()立即执行该 job
+
+begin
+
+dbms_job.run(:jobno)该 jobno为 submit过程提交时返回的 job number
+
+end;
+
+/
+
+b、利用 dbms_job.broken()重新将 broken标记为 false
+
+begin
+
+dbms_job.broken (:job,false,next_date)
+
+end;
+
+/
+
+(2) change()过程用来改变指定工作的设置。
+
+这个过程有四个参数：job、what、next_date与 interval。
+
+procedure change (job in binary_integer,
+
+what in varchar2,
+
+next_date in date,
+
+interval in varchar2)
+
+此 job参数是一个整数值，它唯一标识此工作。
+
+what参数是由此工作运行的一块 pl/sql代码块。
+
+next_date参数指示何时此工作将被执行。
+
+interval参数指示一个工作重执行的频度.
+
+ 
+
+(3)interval()过程用来显式地设置重执行一个工作之间的时间间隔数。这个过程有两个参数：job与
+
+interval。
+
+procedure interval (job in binary_integer,interval in varchar2)
+
+job参数标识一个特定的工作。interval参数指示一个工作重执行的频度。
+
+ 
+
+(4) isubmit()过程用来用特定的工作号提交一个工作。这个过程有五个参数：job、what、next_date、
+
+interval与 no_parse。
+
+procedure isubmit (job in binary_ineger,
+
+what in varchar2,
+
+next_date in date,
+
+interval in varchar2,
+
+no_parse in booean:=false)
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+这个过程与 submit()过程的唯一区别在于此 job参数作为 in型参数传递且包括一个由开发者提
+
+供的工作号。如果提供的工作号已被使用，将产生一个错误。
+
+ 
+
+ 
+
+(5)next_date()过程用来显式地设定一个工作的执行时间。这个过程接收两个参数：job与 next_date。
+
+procedure next_date(job in binary_ineger,next_date in date)
+
+job标识一个已存在的工作。next_date参数指示了此工作应被执行的日期与时间。
+
+ 
+
+(6)remove()过程来删除一个已计划运行的工作。这个过程接收一个参数：
+
+ 
+
+procedure remove(job in
+
+ 
+
+binary_ineger);
+
+
+
+job参数唯一地标识一个工作。这个参数的值是由为此工作调用 submit()过程返回的 job参数
+
+的值。已正在运行的工作不能由调用过程序删除。
+
+ 
+
+ 
+
+(7)run()过程用来立即执行一个指定的工作。这个过程只接收一个参数：
+
+procedure run(job in binary_ineger)
+
+job参数标识将被立即执行的工作。
+
+ 
+
+(8)使用 submit()过程，工作被正常地计划好。
+
+这个过程有五个参数：job、what、next_date、interval与 no_parse。
+
+procedure submit ( job out binary_ineger,
+
+what in varchar2,
+
+
+
+next_date in
+
+interval in
+
+no_parse in
+
+ 
+
+date,
+
+varchar2,
+
+booean:=false)
+
+
+
+job参数是由 submit()过程返回的 binary_ineger。这个值用来唯一标识一个工作。
+
+what参数是将被执行的 pl/sql代码块。
+
+next_date参数指识何时将运行这个工作。
+
+interval参数何时这个工作将被重执行。
+
+no_parse参数指示此工作在提交时或执行时是否应进行语法分析——true指示此 pl/sql代码在
+
+它第一次执行时应进行语法分析，而 false指示本 pl/sql代码应立即进行语法分析。
+
+ 
+
+(9)user_export()过程返回一个命令，此命令用来安排一个存在的工作以便此工作能重新提交,此程序
+
+有两个参数：job与 my_call。
+
+procedure user_export(job in binary_ineger,my_call in out varchar2)
+
+job参数标识一个安排了的工作。my_call参数包含在它的当前状态重新提交此工作所需要的
+
+正文。
+
+ 
+
+ 
+
+(10)what()过程应许在工作执行时重新设置此正在运行的命令。这个过程接收两个参数：job与 what
+
+
+
+ 
+
+ 
+
+procedure what (job
+
+
+
+ 
+
+ 
+
+in binary_ineger, what in out varchar2)
+
+
+
+—job参数标识一个存在的工作。what参数指示将被执行的新的 pl/sql代码。
+
+ 
+
+3)查看相关 job信息
+
+ 
+
+(1)相关视图
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+dba_jobs
+
+all_jobs
+
+user_jobs
+
+dba_jobs_running包含正在运行 job相关信息
+
+ 
+
+(2)查看相关信息
+
+ 
+
+ 
+
+select job, next_date, next_sec, failures, broken
+
+from dba_jobs;
+
+ 
+
+ 
+
+job next_date next_sec failures b
+
+——- ——— ——– ——– -
+
+9125 01-jun-01 00:00:00 4 n
+
+14144 24-oct-01 16:35:35 0 n
+
+9127 01-jun-01 00:00:00 16 y
+
+3 rows selected.
+
+ 
+
+正在运行的 job相关信息
+
+ 
+
+ 
+
+select sid, r.job, log_user, r.this_date, r.this_sec
+
+from dba_jobs_running r, dba_jobs j
+
+where r.job = j.job;
+
+ 
+
+ 
+
+sid job log_user this_date this_sec
+
+—– ———- ————- ——— ——–
+
+12 14144 hr 24-oct-94 17:21:24
+
+25 8536 qs 24-oct-94 16:45:12
+
+2 rows selected.
+
+ 
+
+job queue lock相关信息
+
+ 
+
+ 
+
+select sid, type, id1, id2
+
+from v$lock
+
+where type = ‘jq’;
+
+ 
+
+ 
+
+sid ty id1 id2
+
+——— — ——— ———
+
+12 jq 0 14144
+
+1 row selected.
+
+ 
+
+4)实例操作
+
+创建测试表
+
+create table test(a date);
+
+——create table
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+创建一个自定义过程
+
+create or replace procedure myproc as
+
+begin
+
+insert into test values(sysdate);
+
+end;
+
+/
+
+————–过程已创建。
+
+创建 job
+
+variable job1 number;
+
+begin
+
+
+
+dbms_job.submit(:job1,’myproc;’,sysdate,’sysdate+1/1440′);
+
+运行 test过程一次
+
+end;
+
+/
+
+pl/sql过程已成功完成。
+
+运行 job
+
+begin
+
+dbms_job.run(:job1);
+
+end;
+
+/
+
+ 
+
+pl/sql过程已成功完成。
+
+ 
+
+sql> select to_char(a,’yyyy/mm/dd hh24:mi:ss’)时间 from test;
+
+ 
+
+时间
+
+——————-
+
+2001/01/07 23:51:21
+
+2001/01/07 23:52:22
+
+2001/01/07 23:53:24
+
+ 
+
+删除 job
+
+begin
+
+dbms_job.remove(:job1);
+
+end;
+
+/
+
+ 
+
+ 
+
+6、后台脚本
+
+ 
+
+ 
+
+编辑文件：dyk_name_mtable1.sql写入以下内容：
+
+alter table owner.table_name1 move tablespace tablespace_name1;
+
+alter table owner.table_name2 move tablespace tablespace_name2;
+
+ 
+
+编辑文件 dyk_name_mtable1.sh
+
+ 
+
+–每天 1440分钟，即一分钟
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+sqlplus username/passwdString @TNSstring <<!>>dyk_name_mtable2.out
+
+@ dyk_name_mtable1.sql
+
+!
+
+执行命令：
+
+Nohup dyk_name_mtable1.sh &
+
